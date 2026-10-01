@@ -39,6 +39,15 @@ gem "kamal", require: false
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
 
+# LLM client: chat, embeddings and tool calling across providers [https://rubyllm.com]
+gem "ruby_llm", "~> 2.0"
+# Nearest-neighbor search over pgvector columns [https://github.com/ankane/neighbor]
+gem "neighbor"
+# Google Drive content source: API client, service-account auth and PDF text extraction
+gem "google-apis-drive_v3"
+gem "googleauth"
+gem "pdf-reader"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -51,6 +60,16 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  # Loads .env (gitignored) into ENV in development and test
+  gem "dotenv-rails"
+end
+
+group :test do
+  # Blocks all real HTTP in specs; the Drive and LLM APIs are stubbed
+  gem "webmock"
 end
 
 group :development do
