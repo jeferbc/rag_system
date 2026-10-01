@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_01_014236) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_01_014358) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "vector"
@@ -49,6 +49,32 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_01_014236) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ruby_llm_model_id"], name: "index_chats_on_ruby_llm_model_id"
+  end
+
+  create_table "chunks", force: :cascade do |t|
+    t.bigint "document_id", null: false
+    t.text "content", null: false
+    t.integer "position", null: false
+    t.vector "embedding", limit: 1536, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["document_id", "position"], name: "index_chunks_on_document_id_and_position", unique: true
+    t.index ["document_id"], name: "index_chunks_on_document_id"
+    t.index ["embedding"], name: "index_chunks_on_embedding", opclass: :vector_cosine_ops, using: :hnsw
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "body", default: "", null: false
+    t.string "category", null: false
+    t.string "source", null: false
+    t.string "source_id", null: false
+    t.datetime "source_modified_at"
+    t.string "psychologist_ref"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["psychologist_ref"], name: "index_documents_on_psychologist_ref"
+    t.index ["source", "source_id"], name: "index_documents_on_source_and_source_id", unique: true
   end
 
   create_table "messages", force: :cascade do |t|
@@ -159,5 +185,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_01_014236) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "chats", "ruby_llm_models"
+  add_foreign_key "chunks", "documents"
   add_foreign_key "messages", "chats"
 end

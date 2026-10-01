@@ -4,7 +4,4 @@
 RubyLLM.configure do |config|
   config.openai_api_key = ENV["OPENAI_API_KEY"].presence
   config.anthropic_api_key = ENV["ANTHROPIC_API_KEY"].presence
-
-  # Must produce vectors matching Chunk::EMBEDDING_DIMENSIONS.
-  config.default_embedding_model = "text-embedding-3-small"
 end
