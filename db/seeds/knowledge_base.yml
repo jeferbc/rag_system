@@ -1,0 +1,395 @@
+# Synthetic knowledge base for "Calma Therapy Center", a FICTIONAL clinic.
+# Every person, address and detail below is invented for demos and tests.
+# Never put real clinic content here: real deployments sync it from their own
+# private source (see Sources::GoogleDrive).
+#
+# Prices and availability are deliberately absent. They are live data, served
+# by tools at runtime, and must never be embedded.
+
+# --- Psychologists ---------------------------------------------------------
+
+- id: psychologist-101-elena-marsh
+  title: Elena Marsh, Clinical Psychologist
+  category: psychologist
+  psychologist_ref: psy-101-elena-marsh
+  body: |
+    Elena Marsh is a clinical psychologist at Calma Therapy Center with twelve years of experience helping adults who live with anxiety.
+
+    Specialties: generalized anxiety, panic attacks, health anxiety, phobias and chronic worry. She also works with insomnia that is driven by anxious thinking.
+
+    Approach: Elena practices cognitive behavioral therapy (CBT). Sessions are structured and practical: together you map what triggers the anxiety, test anxious predictions step by step, and practice skills between sessions. She adds mindfulness-based techniques for clients who find it hard to switch off.
+
+    Languages: Elena offers therapy in English and Spanish.
+
+    Works with: adults aged 18 and over, in person and online.
+
+- id: psychologist-102-tomas-rivera
+  title: Tomás Rivera, Clinical Psychologist
+  category: psychologist
+  psychologist_ref: psy-102-tomas-rivera
+  body: |
+    Tomás Rivera is a clinical psychologist at Calma Therapy Center who accompanies adults through depression, grief and major life transitions.
+
+    Specialties: depression, low mood, bereavement and loss, loneliness, and adjusting to changes such as migration, divorce or retirement.
+
+    Approach: Tomás combines behavioral activation with acceptance and commitment therapy (ACT). He helps clients rebuild daily routines that give energy back, and clarify what matters to them so that small actions add up. His style is warm and unhurried.
+
+    Languages: Tomás offers therapy in Spanish and English.
+
+    Works with: adults and older adults, in person and online.
+
+- id: psychologist-103-priya-nair
+  title: Priya Nair, Trauma Psychologist
+  category: psychologist
+  psychologist_ref: psy-103-priya-nair
+  body: |
+    Priya Nair is a psychologist at Calma Therapy Center specialized in trauma and its long-term effects.
+
+    Specialties: post-traumatic stress (PTSD), childhood trauma, accidents and medical trauma, nightmares and flashbacks, and trauma-related dissociation.
+
+    Approach: Priya is trained in EMDR (eye movement desensitization and reprocessing) and trauma-focused CBT. The first sessions focus on safety and stabilization; memory processing only starts when the client feels ready and has the tools to stay grounded.
+
+    Languages: Priya offers therapy in English and Hindi.
+
+    Works with: adults aged 18 and over, in person and online.
+
+- id: psychologist-104-jonas-weber
+  title: Jonas Weber, Couples Therapist
+  category: psychologist
+  psychologist_ref: psy-104-jonas-weber
+  body: |
+    Jonas Weber is a psychologist and couples therapist at Calma Therapy Center.
+
+    Specialties: couples therapy, communication problems, recurring conflict, rebuilding trust after infidelity, intimacy difficulties, and deciding whether to stay together or separate.
+
+    Approach: Jonas works with emotionally focused therapy (EFT) and the Gottman method. Sessions slow down the arguments that keep repeating so that each partner can say what is underneath them. He sees both partners together and may offer one individual session each at the start.
+
+    Languages: Jonas offers therapy in English and German.
+
+    Works with: couples of any orientation, and individuals with relationship concerns. In person and online.
+
+- id: psychologist-105-camila-duarte
+  title: Camila Duarte, Child and Adolescent Psychologist
+  category: psychologist
+  psychologist_ref: psy-105-camila-duarte
+  body: |
+    Camila Duarte is a child and adolescent psychologist at Calma Therapy Center.
+
+    Specialties: childhood anxiety and fears, school refusal, behavior difficulties, emotional regulation, bullying, and supporting children through a separation or a loss in the family.
+
+    Approach: With younger children Camila uses play therapy; with adolescents she uses CBT adapted to their age. Parents are part of the process: she holds regular parent sessions and gives concrete guidance for home and school.
+
+    Languages: Camila offers therapy in Portuguese and Spanish. She does not offer sessions in English.
+
+    Works with: children from age 5 and adolescents up to 17, in person. Online sessions are available for adolescents and for parent guidance.
+
+- id: psychologist-106-hannah-okoye
+  title: Hannah Okoye, Perinatal Psychologist
+  category: psychologist
+  psychologist_ref: psy-106-hannah-okoye
+  body: |
+    Hannah Okoye is a psychologist at Calma Therapy Center focused on mental health during pregnancy and early parenthood.
+
+    Specialties: postpartum depression, anxiety during pregnancy and after birth, birth trauma, pregnancy loss, fertility-related stress, and the identity shift of becoming a parent.
+
+    Approach: Hannah integrates interpersonal therapy (IPT) with compassion-focused work. She pays attention to sleep, support networks and the couple relationship, and coordinates with midwives or physicians when the client asks her to.
+
+    Languages: Hannah offers therapy in English.
+
+    Works with: adults who are expecting, new parents and partners. In person and online; babies are welcome in the session.
+
+- id: psychologist-107-mateo-fuentes
+  title: Mateo Fuentes, Addiction Psychologist
+  category: psychologist
+  psychologist_ref: psy-107-mateo-fuentes
+  body: |
+    Mateo Fuentes is a psychologist at Calma Therapy Center who works with addiction and compulsive behaviors.
+
+    Specialties: alcohol and substance use, gambling, compulsive use of screens and video games, relapse prevention, and support for family members.
+
+    Approach: Mateo uses motivational interviewing and CBT for relapse prevention. He starts from the client's own reasons for change, without judgment, and builds a concrete plan for high-risk situations. He coordinates with medical services when detox or medication is needed.
+
+    Languages: Mateo offers therapy in Spanish only.
+
+    Works with: adults aged 18 and over and their families, in person and online.
+
+- id: psychologist-108-sofia-lindqvist
+  title: Sofia Lindqvist, Psychologist for Eating Disorders
+  category: psychologist
+  psychologist_ref: psy-108-sofia-lindqvist
+  body: |
+    Sofia Lindqvist is a psychologist at Calma Therapy Center specialized in eating disorders and body image.
+
+    Specialties: anorexia, bulimia, binge eating, emotional eating, body image distress and perfectionism.
+
+    Approach: Sofia practices enhanced CBT for eating disorders (CBT-E) and, with adolescents, family-based treatment. She works alongside the client's physician and dietitian, because recovery needs medical and nutritional follow-up as well as therapy.
+
+    Languages: Sofia offers therapy in English and Swedish.
+
+    Works with: adolescents from age 14 and adults, in person and online.
+
+- id: psychologist-109-david-chen
+  title: David Chen, Psychologist for Adult ADHD
+  category: psychologist
+  psychologist_ref: psy-109-david-chen
+  body: |
+    David Chen is a psychologist at Calma Therapy Center who works with adults with ADHD and other attention difficulties.
+
+    Specialties: adult ADHD, procrastination, disorganization, time management, emotional impulsivity, and the low self-esteem that often comes from years of feeling "lazy" or "messy".
+
+    Approach: David offers CBT adapted for ADHD together with practical coaching on executive functioning. Sessions produce systems the client actually uses: external reminders, task breakdown, and routines designed around how their attention works.
+
+    Languages: David offers therapy in English and Mandarin.
+
+    Works with: adults and university students, in person and online. He provides psychological assessment of ADHD; he does not prescribe medication.
+
+- id: psychologist-110-lucia-paredes
+  title: Lucía Paredes, Psychologist for OCD and Social Anxiety
+  category: psychologist
+  psychologist_ref: psy-110-lucia-paredes
+  body: |
+    Lucía Paredes is a psychologist at Calma Therapy Center specialized in obsessive-compulsive disorder and social anxiety.
+
+    Specialties: OCD, intrusive thoughts, compulsive checking and cleaning, social anxiety, fear of public speaking, and shyness that limits work or study.
+
+    Approach: Lucía uses exposure and response prevention (ERP), the reference treatment for OCD, and CBT for social anxiety. Exposure is always gradual and agreed in advance: the client sets the pace.
+
+    Languages: Lucía offers therapy in Spanish only.
+
+    Works with: adolescents from age 16 and adults, in person and online.
+
+- id: psychologist-111-amara-bello
+  title: Amara Bello, Psychologist for Stress and Burnout
+  category: psychologist
+  psychologist_ref: psy-111-amara-bello
+  body: |
+    Amara Bello is a psychologist at Calma Therapy Center who helps people dealing with work stress and burnout.
+
+    Specialties: burnout, chronic stress, work-related anxiety, perfectionism, impostor feelings, and difficulty setting limits between work and personal life.
+
+    Approach: Amara combines mindfulness-based stress reduction (MBSR) with ACT. She helps clients recognize early signs of exhaustion, recover, and then change the patterns that led there, including how they negotiate workload and say no.
+
+    Languages: Amara offers therapy in English and French.
+
+    Works with: adults, in person and online.
+
+- id: psychologist-112-noah-feldman
+  title: Noah Feldman, LGBTQ+ Affirming Psychologist
+  category: psychologist
+  psychologist_ref: psy-112-noah-feldman
+  body: |
+    Noah Feldman is a psychologist at Calma Therapy Center offering LGBTQ+ affirming therapy.
+
+    Specialties: sexual orientation and gender identity, coming out, minority stress, family acceptance, self-esteem, and relationship concerns in LGBTQ+ couples.
+
+    Approach: Noah works from a person-centered and affirming stance, with tools from CBT and narrative therapy. Clients do not need to explain or justify who they are; therapy focuses on what they want to change or understand.
+
+    Languages: Noah offers therapy in English.
+
+    Works with: adolescents from age 15 and adults, in person and online.
+
+# --- Frequently asked questions -------------------------------------------
+
+- id: faq-booking-first-appointment
+  title: "FAQ: How do I book a first appointment?"
+  category: faq
+  body: |
+    You can book a first appointment at Calma Therapy Center through this assistant, by phone, or at the front desk.
+
+    To book, we need your name, a contact phone or email, whether you prefer in-person or online sessions, and the language you would like therapy in. If you already know which psychologist you want to see, tell us; otherwise we will suggest one based on what you are looking for.
+
+    Available times change constantly, so they are always checked live at the moment you book. You will receive a confirmation message with the date, time and format of the session.
+
+- id: faq-first-session
+  title: "FAQ: What happens in the first session?"
+  category: faq
+  body: |
+    The first session is a conversation to get to know you and understand what brings you to therapy. It is not an exam and there are no wrong answers.
+
+    Your psychologist will ask about what you are going through, how long it has been happening, your health and your daily life, and what you would like to be different. You can also ask anything about how they work.
+
+    At the end, the psychologist will share a first impression and propose a plan: how often to meet and what the first goals could be. You decide whether to continue. If you feel the fit is not right, we will help you find another professional in the team.
+
+- id: faq-online-sessions
+  title: "FAQ: Do you offer online sessions?"
+  category: faq
+  body: |
+    Yes. Most psychologists at Calma Therapy Center offer online sessions by secure video call, and research shows they are as effective as in-person therapy for most concerns.
+
+    You need a private space, a stable internet connection, and a phone, tablet or computer with a camera. You will receive a link before each session; there is nothing to install.
+
+    You can combine both formats, for example in person most weeks and online when you travel. Therapy with young children is offered in person only.
+
+- id: faq-session-length-frequency
+  title: "FAQ: How long is a session and how often will I come?"
+  category: faq
+  body: |
+    Individual sessions last 50 minutes. Couples and family sessions last 75 minutes.
+
+    Most people start with one session per week. As things improve, sessions are usually spaced out to every two weeks and then monthly before finishing.
+
+    How long therapy lasts depends on your goals. Some people come for a few months to work on a specific problem; others choose a longer process. Your psychologist will review progress with you regularly, so you always know where you are.
+
+- id: faq-choosing-a-psychologist
+  title: "FAQ: How do I choose the right psychologist?"
+  category: faq
+  body: |
+    Start from what you want help with and the language you want to speak in. Each psychologist at Calma Therapy Center has a profile describing their specialties, their approach and the languages they work in.
+
+    If you are not sure, describe your situation in a few sentences and we will suggest one or two professionals whose experience matches. For example, we have psychologists focused on anxiety, depression and grief, trauma, couples, children and adolescents, perinatal mental health, addiction, eating disorders, adult ADHD, OCD, burnout, and LGBTQ+ affirming therapy.
+
+    The relationship with your therapist matters as much as the method. If after a few sessions it does not feel right, you can change at any time.
+
+- id: faq-confidentiality
+  title: "FAQ: Is what I say in therapy confidential?"
+  category: faq
+  body: |
+    Yes. Everything you discuss with your psychologist is confidential and protected by professional secrecy. We do not share information with your family, employer or anyone else without your written consent.
+
+    There are a few legal exceptions: when there is a serious and imminent risk to your life or someone else's, when a minor or vulnerable person is being harmed, or when a court orders it. Your psychologist will explain these limits in the first session.
+
+    See our privacy and confidentiality policy for details on how records are stored.
+
+- id: faq-children-and-teenagers
+  title: "FAQ: Do you work with children and teenagers?"
+  category: faq
+  body: |
+    Yes. Calma Therapy Center has psychologists specialized in children from age 5 and in adolescents.
+
+    For children, the first appointment is usually with the parents or guardians alone, to understand the situation. After that the psychologist meets the child, and parents are involved throughout with regular guidance sessions.
+
+    Adolescents are usually seen on their own, with occasional family sessions. What a teenager says in session is confidential, with the safety exceptions that the psychologist explains to both the teenager and the parents at the start.
+
+    A parent or legal guardian must give consent before therapy with a minor begins.
+
+- id: faq-couples-and-family-therapy
+  title: "FAQ: Do you offer couples and family therapy?"
+  category: faq
+  body: |
+    Yes. We offer couples therapy and family therapy at Calma Therapy Center.
+
+    Couples therapy is for partners who want to improve communication, get out of repeated arguments, rebuild trust, or make a decision about the relationship. Both partners attend together.
+
+    Family therapy helps when a difficulty affects the whole household, such as conflict with a teenager, a separation, or an illness in the family.
+
+    The therapist does not take sides. Their role is to help everyone be heard and to find new ways of relating.
+
+- id: faq-languages
+  title: "FAQ: What languages are sessions available in?"
+  category: faq
+  body: |
+    Therapy at Calma Therapy Center is available in English and Spanish with several psychologists. Depending on the professional, sessions are also offered in Portuguese, French, German, Swedish, Hindi and Mandarin.
+
+    Each psychologist's profile lists the languages they work in. Therapy works best in the language you feel most comfortable expressing emotions in, so tell us your preference when you book.
+
+    Our front desk and this assistant can help you in English and Spanish.
+
+- id: faq-switching-psychologist
+  title: "FAQ: Can I switch to a different psychologist?"
+  category: faq
+  body: |
+    Yes, at any time and without having to justify it. Feeling comfortable with your therapist is essential for therapy to work.
+
+    You can tell your current psychologist directly, or ask the front desk or this assistant. We will suggest another professional who fits what you need.
+
+    With your permission, your new psychologist can receive a short summary from the previous one so you do not have to start from zero.
+
+- id: faq-medication
+  title: "FAQ: Do you prescribe medication?"
+  category: faq
+  body: |
+    No. The professionals at Calma Therapy Center are psychologists, and psychologists do not prescribe medication. We offer psychological assessment and psychotherapy.
+
+    If your psychologist thinks medication could help, they will recommend a consultation with a psychiatrist or with your family doctor and, with your consent, coordinate with them.
+
+    If you already take psychiatric medication, you can start therapy normally. Please do not stop or change medication without talking to the doctor who prescribed it.
+
+- id: faq-crisis-and-emergencies
+  title: "FAQ: What should I do in a crisis or emergency?"
+  category: faq
+  body: |
+    Calma Therapy Center is not an emergency service. If you or someone else is in immediate danger, or you are thinking about harming yourself, call your local emergency number or go to the nearest hospital emergency department right now.
+
+    This assistant cannot handle emergencies and messages are not monitored around the clock.
+
+    If you are a current client and are going through a difficult moment that is not an emergency, contact the front desk during opening hours and we will let your psychologist know so they can get back to you.
+
+# --- Policies ---------------------------------------------------------------
+
+- id: policy-cancellation-and-rescheduling
+  title: Cancellation and Rescheduling Policy
+  category: policy
+  body: |
+    Your session time is reserved exclusively for you. If you cannot attend, please let us know as early as possible so the time can be offered to someone else.
+
+    You can cancel or reschedule free of charge up to 24 hours before the start of the session. You can do it through this assistant, by phone, or at the front desk.
+
+    Cancellations made with less than 24 hours' notice, and sessions that are missed without notice, are charged the full session fee. Exceptions are made for medical emergencies and other serious unforeseen events; talk to the front desk.
+
+    If your psychologist has to cancel, you will be offered a new time and will not be charged.
+
+- id: policy-payment
+  title: Payment Policy
+  category: policy
+  body: |
+    Payment is due on the day of each session. For online sessions, payment is made before the session starts using the secure link sent with your confirmation.
+
+    We accept debit and credit cards, bank transfer, and contactless payment at the front desk. We do not accept cash for online sessions.
+
+    You will receive an itemized receipt for every payment. Many health insurance plans reimburse psychotherapy in part; we can issue the documents your insurer asks for, but reimbursement is arranged between you and your insurer.
+
+    Session fees depend on the type of session and are confirmed when you book. Ask this assistant or the front desk for the current fees at any time.
+
+    If you are experiencing financial difficulty, tell your psychologist or the front desk before a balance builds up, so that we can look at options together.
+
+- id: policy-late-arrival-and-missed-sessions
+  title: Late Arrival and Missed Sessions Policy
+  category: policy
+  body: |
+    Sessions start and end at the scheduled time. If you arrive late, the session still ends at the original time, because another person is booked afterwards, and it is charged in full.
+
+    If you are more than 20 minutes late without letting us know, the session is considered missed and the cancellation policy applies.
+
+    If your psychologist is running late, you will receive your full session time or the difference will be made up at a later session.
+
+    After two consecutive missed sessions without notice, we may release your regular time slot. You are always welcome to book again.
+
+- id: policy-privacy-and-confidentiality
+  title: Privacy and Confidentiality Policy
+  category: policy
+  body: |
+    Calma Therapy Center treats all personal and health information as strictly confidential.
+
+    What we keep: contact details, appointment history, payment records and the clinical notes written by your psychologist. Clinical notes can only be read by your psychologist.
+
+    How we protect it: records are stored in an encrypted clinical records system with individual access controls. Paper documents are kept in locked cabinets.
+
+    Sharing: we never share your information with third parties without your written consent, except where the law requires it, such as a serious and imminent risk to someone's safety or a court order.
+
+    Your rights: you can ask to see your records, correct them, or request a report for another professional. Requests are made in writing at the front desk.
+
+    Conversations with this assistant are used to help you with your request. Please do not share detailed clinical information in chat; keep that for your sessions.
+
+- id: policy-online-sessions
+  title: Online Sessions Policy
+  category: policy
+  body: |
+    Online sessions at Calma Therapy Center take place by secure, encrypted video call. Sessions are never recorded by the clinic, and clients may not record them either.
+
+    Please connect from a private, quiet place where you will not be interrupted, and not while driving. Use headphones if other people are nearby. Your psychologist will also be in a private room.
+
+    If the connection fails, your psychologist will try to reconnect and then call you by phone to continue or to agree on a new time. Time lost to technical problems on our side is made up.
+
+    Online sessions follow the same cancellation and payment policies as in-person sessions. For safety reasons, we ask you to confirm the address you are connecting from at the start of each session.
+
+- id: policy-minors-and-guardian-consent
+  title: Minors and Guardian Consent Policy
+  category: policy
+  body: |
+    Therapy with anyone under 18 requires the written consent of a parent or legal guardian before the first session. When parents are separated and share custody, we ask for the consent of both.
+
+    A parent or guardian must be reachable during the session of a child under 12 and must stay in the waiting area during in-person sessions.
+
+    What a child or adolescent says in therapy is confidential. Parents receive regular updates about goals and progress, but not the details of each session. The psychologist will always inform parents if there is a risk to the young person's safety.
+
+    Appointments, cancellations and payments for minors are managed by the parent or guardian.
