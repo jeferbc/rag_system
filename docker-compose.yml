@@ -1,0 +1,21 @@
+# Local development/test database: PostgreSQL 17 with the pgvector extension.
+# The credentials below are throwaway local defaults, not used anywhere real.
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      # Host port defaults to 5433 so it doesn't clash with a system Postgres on 5432.
+      - "127.0.0.1:${DB_PORT:-5433}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:
