@@ -35,13 +35,13 @@ RSpec.describe "db/seeds.rb" do
     edited = Document.find_by!(source_id: "policy-payment")
     edited.update!(body: "Outdated text.")
     create(:chunk, document: edited)
-    drive_document = create(:document, source: "google_drive")
+    uploaded_document = create(:document, source: "upload")
 
     seed
 
     expect(edited.reload.body).to start_with("Payment is due on the day of each session.")
     expect(edited.chunks).to be_empty
-    expect(Document.exists?(drive_document.id)).to be(true)
+    expect(Document.exists?(uploaded_document.id)).to be(true)
   end
 
   # Prices and availability are live data served by tools; they must never be embedded.

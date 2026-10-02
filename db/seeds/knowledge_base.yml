@@ -1,7 +1,7 @@
 # Synthetic knowledge base for "Calma Therapy Center", a FICTIONAL clinic.
 # Every person, address and detail below is invented for demos and tests.
-# Never put real clinic content here: real deployments sync it from their own
-# private source (see Sources::GoogleDrive).
+# Never put real clinic content here: real deployments upload their own
+# documents privately.
 #
 # Prices and availability are deliberately absent. They are live data, served
 # by tools at runtime, and must never be embedded.

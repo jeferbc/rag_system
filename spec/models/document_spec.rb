@@ -2,9 +2,9 @@ require "rails_helper"
 
 RSpec.describe Document do
   it "requires source_id to be unique within a source" do
-    create(:document, source: "google_drive", source_id: "abc")
+    create(:document, source: "upload", source_id: "abc")
 
-    expect(build(:document, source: "google_drive", source_id: "abc")).not_to be_valid
+    expect(build(:document, source: "upload", source_id: "abc")).not_to be_valid
     expect(build(:document, source: "seed", source_id: "abc")).to be_valid
   end
 

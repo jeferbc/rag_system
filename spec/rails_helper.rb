@@ -10,7 +10,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'webmock/rspec'
 
-# No real network in specs: the Drive API and LLM providers are always stubbed.
+# No real network in specs: LLM providers are always stubbed.
 WebMock.disable_net_connect!(allow_localhost: true)
 # Add additional requires below this line. Rails is not loaded until this point!
 

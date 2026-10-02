@@ -43,9 +43,7 @@ gem "thruster", require: false
 gem "ruby_llm", "~> 2.0"
 # Nearest-neighbor search over pgvector columns [https://github.com/ankane/neighbor]
 gem "neighbor"
-# Google Drive content source: API client, service-account auth and PDF text extraction
-gem "google-apis-drive_v3"
-gem "googleauth"
+# Text extraction from uploaded PDFs
 gem "pdf-reader"
 
 group :development, :test do
@@ -68,7 +66,7 @@ group :development, :test do
 end
 
 group :test do
-  # Blocks all real HTTP in specs; the Drive and LLM APIs are stubbed
+  # Blocks all real HTTP in specs; the LLM APIs are stubbed
   gem "webmock"
 end
 

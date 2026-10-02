@@ -1,6 +1,6 @@
 # Loads the synthetic knowledge base of the fictional "Calma Therapy Center"
-# (db/seeds/knowledge_base.yml). Idempotent, and needs neither Google Drive
-# credentials nor an LLM API key: documents are stored without embeddings.
+# (db/seeds/knowledge_base.yml). Idempotent, and needs no LLM API key:
+# documents are stored without embeddings.
 # Run `bin/rails documents:ingest` afterwards to chunk and embed them.
 
 seed_source = "seed"

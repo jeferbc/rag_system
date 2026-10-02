@@ -10,19 +10,15 @@ This repository is the engine. It ships with a fictional clinic, "Calma Therapy 
 
 Two kinds of information, handled differently:
 
-- **Static content → RAG.** Psychologist bios, therapeutic approach, FAQs and policies are synced from a content source, split into chunks, embedded and stored in Postgres with pgvector.
+- **Static content → RAG.** Psychologist bios, therapeutic approach, FAQs and policies are split into chunks, embedded and stored in Postgres with pgvector.
 - **Live data → tools at runtime.** Availability and prices are fetched through MCP tools when a patient asks (later phase). They are never embedded.
 
 ```
-Content source ──► Sources::Sync ──► Document ──► IngestDocumentJob ──► Chunk (embedding)
-(Google Drive,      create / update /              chunk + embed          │
- seeds, …)          skip / delete                                         ▼
-                                                              Chunk.search("…")
+Document ──► IngestDocumentJob ──► Chunk (embedding) ──► Chunk.search("…")
+              chunk + embed
 ```
 
-- `Sources::GoogleDrive` walks a Drive folder with a read-only service account. Google Docs are exported as text, PDFs go through `pdf-reader`, other file types are skipped with a warning. Files inside a `psy-<id>-<slug>` folder are tagged with that folder name as `psychologist_ref`.
-- `SyncDriveJob` runs hourly (`config/recurring.yml`). Files whose `modifiedTime` has not changed are skipped; documents whose file disappeared from the folder are deleted with their chunks.
-- New sources (Notion, uploads, …) implement the three methods of `Sources::Base` and reuse `Sources::Sync`.
+Syncing content from external sources (Google Drive, Notion) is planned for a later iteration.
 
 ## Stack
 
@@ -46,7 +42,7 @@ bin/rails ruby_llm:load_models  # loads RubyLLM's bundled model registry (offlin
 bin/rails documents:ingest      # chunks and embeds the seeded documents (calls OpenAI)
 ```
 
-Seeding needs no API key or Drive credentials. Only `documents:ingest` and searching call the embeddings API.
+Seeding needs no API key. Only `documents:ingest` and searching call the embeddings API.
 
 Try a search:
 
@@ -63,35 +59,9 @@ Start the app with `bin/dev`. Run the tests with `bundle exec rspec`, or everyth
 
 If port 5433 is taken, set `DB_PORT` in `.env` (and in your shell for `docker compose up -d`).
 
-### Syncing from Google Drive (optional)
-
-1. Create a Google Cloud service account, enable the Drive API, and share the clinic's content folder with the service account's email as a **Viewer**. The app only requests the `drive.readonly` scope.
-2. Put the service-account key in Rails credentials (`bin/rails credentials:edit`):
-
-   ```yaml
-   google_drive:
-     service_account: |
-       { "type": "service_account", "project_id": "…", "private_key": "…", "client_email": "…" }
-   ```
-
-3. Set the folder ID with `GOOGLE_DRIVE_FOLDER_ID` (or `google_drive.folder_id` in credentials).
-4. Run a sync: `bin/rails runner 'SyncDriveJob.perform_now'`. In production it runs every hour.
-
-Expected folder layout:
-
-```
-<clinic folder>/
-├── FAQ - Booking                  (Google Doc, no psychologist_ref)
-├── Cancellation Policy.pdf
-├── psy-101-elena-marsh/           (psychologist_ref = "psy-101-elena-marsh")
-│   └── Bio
-└── psy-102-tomas-rivera/
-    └── Bio
-```
-
 ## Keeping real data out of the repo
 
-This repository is public. Seeds, fixtures and test data are synthetic. Do not commit real clinic content, names, credentials or folder IDs. `.env` and `config/*.key` are gitignored; real deployments supply secrets through Rails credentials or environment variables managed outside the repo.
+This repository is public. Seeds, fixtures and test data are synthetic. Do not commit real clinic content, names or credentials. `.env` and `config/*.key` are gitignored; real deployments supply secrets through Rails credentials or environment variables managed outside the repo.
 
 ## Roadmap
 

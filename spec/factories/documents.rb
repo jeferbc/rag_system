@@ -3,7 +3,7 @@ FactoryBot.define do
     sequence(:title) { |n| "Document #{n}" }
     body { "Calma Therapy Center is a fictional clinic used for test data." }
     category { "faq" }
-    source { "google_drive" }
+    source { "upload" }
     sequence(:source_id) { |n| "file-#{n}" }
     source_modified_at { Time.utc(2026, 1, 1) }
   end

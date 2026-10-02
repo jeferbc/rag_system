@@ -91,7 +91,7 @@ jobs:
         with:
           bundler-cache: true
 
-      # No API keys or Drive credentials: specs stub every external call.
+      # No API keys needed: specs stub every external call.
       - name: Run specs
         env:
           RAILS_ENV: test
