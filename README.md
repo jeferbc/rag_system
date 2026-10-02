@@ -14,11 +14,11 @@ Two kinds of information, handled differently:
 - **Live data → tools at runtime.** Availability and prices are fetched through MCP tools when a patient asks (later phase). They are never embedded.
 
 ```
-Document ──► IngestDocumentJob ──► Chunk (embedding) ──► Chunk.search("…")
-              chunk + embed
+Upload form ──► Document ──► IngestDocumentJob ──► Chunk (embedding) ──► Chunk.search("…")
+(PDF, TXT, MD)                chunk + embed
 ```
 
-Syncing content from external sources (Google Drive, Notion) is planned for a later iteration.
+Documents are uploaded at `/admin/documents`, several files at a time. Uploading a file with the same name as an earlier upload replaces it. Syncing content from external sources (Google Drive, Notion) is planned for a later iteration.
 
 ## Stack
 
@@ -55,7 +55,11 @@ bin/rails runner '
 '
 ```
 
-Start the app with `bin/dev`. Run the tests with `bundle exec rspec`, or everything CI runs with `bin/ci`.
+Start the app with `bin/dev` and open <http://localhost:3000/admin/documents> to upload your own documents (PDF, TXT or Markdown). Each upload is chunked and embedded in the background.
+
+The admin area uses HTTP Basic auth: set `ADMIN_PASSWORD` (and optionally `ADMIN_USER`, default `admin`). With no password set it is open in development and locked in every other environment.
+
+Run the tests with `bundle exec rspec`, or everything CI runs with `bin/ci`.
 
 If port 5433 is taken, set `DB_PORT` in `.env` (and in your shell for `docker compose up -d`).
 

@@ -1,0 +1,90 @@
+<% content_for :title, "Knowledge base · Calma Assistant" %>
+
+<main class="mx-auto max-w-5xl px-4 py-10 text-slate-800">
+  <h1 class="text-2xl font-semibold">Knowledge base</h1>
+  <p class="mt-1 text-sm text-slate-500">
+    Documents the assistant can answer from. Never upload prices or availability: those are looked up live.
+  </p>
+
+  <% if notice %>
+    <p class="mt-6 rounded-md border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800" role="status"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="mt-6 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800" role="alert"><%= alert %></p>
+  <% end %>
+
+  <%= form_with url: admin_documents_path, multipart: true, class: "mt-6 rounded-lg border border-slate-200 bg-white p-5" do |form| %>
+    <h2 class="text-base font-medium">Upload documents</h2>
+
+    <div class="mt-4 grid gap-4 sm:grid-cols-2">
+      <div class="sm:col-span-2">
+        <%= form.label :files, "Files", class: "block text-sm font-medium" %>
+        <%= form.file_field :files, multiple: true, required: true, include_hidden: false,
+              accept: TextExtractor::EXTENSIONS.join(","),
+              class: "mt-1 block w-full rounded-md border border-slate-300 text-sm file:mr-3 file:border-0 file:bg-slate-100 file:px-3 file:py-2 file:text-sm file:font-medium" %>
+        <p class="mt-1 text-xs text-slate-500">
+          PDF, TXT or Markdown, up to <%= DocumentUpload::MAX_BYTES / 1.megabyte %> MB each. Select several at once.
+          A file with the same name as an existing upload replaces it.
+        </p>
+      </div>
+
+      <div>
+        <%= form.label :category, "Category (applies to every file)", class: "block text-sm font-medium" %>
+        <%= form.select :category, Document::CATEGORIES.map { |category| [ category.humanize, category ] },
+              { prompt: "Choose a category" }, required: true,
+              class: "mt-1 block w-full rounded-md border border-slate-300 px-3 py-2 text-sm" %>
+      </div>
+
+      <div>
+        <%= form.label :psychologist_ref, "Psychologist reference (optional)", class: "block text-sm font-medium" %>
+        <%= form.text_field :psychologist_ref, placeholder: "psy-101-elena-marsh",
+              class: "mt-1 block w-full rounded-md border border-slate-300 px-3 py-2 text-sm" %>
+      </div>
+    </div>
+
+    <%= form.submit "Upload", class: "mt-5 cursor-pointer rounded-md bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-700" %>
+  <% end %>
+
+  <h2 class="mt-10 text-base font-medium"><%= pluralize(@documents.length, "document") %></h2>
+
+  <% if @documents.empty? %>
+    <p class="mt-3 text-sm text-slate-500">Nothing here yet. Upload some files above, or run <code>bin/rails db:seed</code> for the demo clinic.</p>
+  <% else %>
+    <div class="mt-3 overflow-x-auto rounded-lg border border-slate-200 bg-white">
+      <table class="min-w-full divide-y divide-slate-200 text-sm">
+        <thead class="bg-slate-50 text-left text-xs uppercase tracking-wide text-slate-500">
+          <tr>
+            <th class="px-4 py-3 font-medium">Title</th>
+            <th class="px-4 py-3 font-medium">Category</th>
+            <th class="px-4 py-3 font-medium">Psychologist</th>
+            <th class="px-4 py-3 font-medium">Source</th>
+            <th class="px-4 py-3 font-medium">Chunks</th>
+            <th class="px-4 py-3"><span class="sr-only">Actions</span></th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+          <% @documents.each do |document| %>
+            <tr>
+              <td class="px-4 py-3 font-medium"><%= document.title %></td>
+              <td class="px-4 py-3"><%= document.category.humanize %></td>
+              <td class="px-4 py-3 text-slate-500"><%= document.psychologist_ref || "—" %></td>
+              <td class="px-4 py-3 text-slate-500"><%= document.source.humanize %></td>
+              <td class="px-4 py-3">
+                <% if document.chunks_count.zero? %>
+                  <span class="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-800">Not embedded yet</span>
+                <% else %>
+                  <%= document.chunks_count %>
+                <% end %>
+              </td>
+              <td class="px-4 py-3 text-right">
+                <%= button_to "Delete", admin_document_path(document), method: :delete,
+                      form: { data: { turbo_confirm: "Delete “#{document.title}” from the knowledge base?" } },
+                      class: "cursor-pointer text-sm text-red-700 hover:underline" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</main>
