@@ -1,0 +1,173 @@
+# Retrieval eval set: questions a patient might send, and the seed document(s)
+# that should come back for each. Run with `bin/rails evals:retrieval`.
+#
+# - question: written the way people message a clinic (informal, missing
+#   accents, abbreviations), never copied from the document's wording.
+# - expected: source_ids from db/seeds/knowledge_base.yml. Any one of them in
+#   the top K counts as a hit. Empty means the knowledge base has no answer:
+#   the question is not scored, only reported with its nearest distance.
+# - tags: used to break the report down. One category tag (psychologist, faq,
+#   policy) plus difficulty tags (language, multi, crisis, english) or, for
+#   unscored questions, the reason (live_data, not_covered, off_topic).
+#
+# All content is synthetic, like the seeds. Do not add real patient messages.
+
+# --- Finding a psychologist ---------------------------------------------------
+
+- question: busco psicologa para ansiedad q atienda en ingles
+  expected: [psychologist-101-elena-marsh]
+  tags: [psychologist, language]
+
+- question: me dan ataques de panico y no se que hacer, con quien puedo ir?
+  expected: [psychologist-101-elena-marsh]
+  tags: [psychologist]
+
+- question: mi mama murio hace poco y no levanto cabeza
+  expected: [psychologist-102-tomas-rivera]
+  tags: [psychologist]
+
+- question: tuve un accidente de carro y desde ahi tengo pesadillas, hay alguien que trabaje eso?
+  expected: [psychologist-103-priya-nair]
+  tags: [psychologist]
+
+- question: mi esposo y yo peleamos todo el tiempo, hacen terapia de pareja?
+  expected: [psychologist-104-jonas-weber, faq-couples-and-family-therapy]
+  tags: [psychologist, multi]
+
+- question: mi hijo de 8 años no quiere ir al colegio y llora todas las mañanas
+  expected: [psychologist-105-camila-duarte]
+  tags: [psychologist]
+
+- question: acabo de tener un bebe y me siento triste todo el dia, no se que me pasa
+  expected: [psychologist-106-hannah-okoye]
+  tags: [psychologist]
+
+- question: mi hermano toma demasiado y la familia ya no sabe que hacer
+  expected: [psychologist-107-mateo-fuentes]
+  tags: [psychologist]
+
+- question: creo que tengo bulimia y me da pena contarlo
+  expected: [psychologist-108-sofia-lindqvist]
+  tags: [psychologist]
+
+- question: no me concentro en el trabajo y dejo todo para ultimo momento, sera tdah?
+  expected: [psychologist-109-david-chen]
+  tags: [psychologist]
+
+- question: me lavo las manos muchisimas veces al dia y no puedo parar
+  expected: [psychologist-110-lucia-paredes]
+  tags: [psychologist]
+
+- question: estoy quemado del trabajo, ya no doy mas
+  expected: [psychologist-111-amara-bello]
+  tags: [psychologist]
+
+- question: soy gay y no se como decirselo a mi familia
+  expected: [psychologist-112-noah-feldman]
+  tags: [psychologist]
+
+- question: necesito una terapeuta que hable portugues para mi hija
+  expected: [psychologist-105-camila-duarte]
+  tags: [psychologist, language]
+
+- question: atienden en aleman?
+  expected: [psychologist-104-jonas-weber, faq-languages]
+  tags: [psychologist, language, multi]
+
+- question: do you have a therapist who speaks english?
+  expected: [faq-languages]
+  tags: [faq, language, english]
+
+# --- Frequently asked questions -------------------------------------------------
+
+- question: como hago para pedir una cita por primera vez
+  expected: [faq-booking-first-appointment]
+  tags: [faq]
+
+- question: que me van a preguntar en la primera consulta? estoy nerviosa
+  expected: [faq-first-session]
+  tags: [faq]
+
+- question: se puede hacer la terapia por videollamada?
+  expected: [faq-online-sessions, policy-online-sessions]
+  tags: [faq, multi]
+
+- question: cuanto dura cada sesion
+  expected: [faq-session-length-frequency]
+  tags: [faq]
+
+- question: no se cual psicologo escoger, como se cual me sirve
+  expected: [faq-choosing-a-psychologist]
+  tags: [faq]
+
+- question: le van a contar a mi jefe lo que yo diga en terapia?
+  expected: [faq-confidentiality, policy-privacy-and-confidentiality]
+  tags: [faq, multi]
+
+- question: no me senti comoda con mi psicologa, puedo pedir otra?
+  expected: [faq-switching-psychologist]
+  tags: [faq]
+
+- question: me pueden recetar pastillas para dormir?
+  expected: [faq-medication]
+  tags: [faq]
+
+- question: estoy muy mal y pienso en hacerme daño
+  expected: [faq-crisis-and-emergencies]
+  tags: [faq, crisis]
+
+- question: atienden adolescentes de 15?
+  expected: [faq-children-and-teenagers, psychologist-105-camila-duarte]
+  tags: [faq, multi]
+
+# --- Policies -------------------------------------------------------------------
+
+- question: me toca pagar si cancelo el mismo dia?
+  expected: [policy-cancellation-and-rescheduling]
+  tags: [policy]
+
+- question: puedo pagar con tarjeta?
+  expected: [policy-payment]
+  tags: [policy]
+
+- question: mi seguro me devuelve la plata de las consultas?
+  expected: [policy-payment]
+  tags: [policy]
+
+- question: voy a llegar 15 min tarde, pierdo la cita?
+  expected: [policy-late-arrival-and-missed-sessions]
+  tags: [policy]
+
+- question: quien puede ver mi historia clinica
+  expected: [policy-privacy-and-confidentiality]
+  tags: [policy]
+
+- question: graban las sesiones online?
+  expected: [policy-online-sessions]
+  tags: [policy]
+
+- question: estamos separados, necesito el permiso del papa para llevar a mi hijo a terapia?
+  expected: [policy-minors-and-guardian-consent]
+  tags: [policy]
+
+# --- No answer in the knowledge base (not scored) --------------------------------
+
+- question: cuanto cuesta la sesion?
+  expected: []
+  tags: [live_data]
+
+- question: tienen cita mañana en la tarde con elena?
+  expected: []
+  tags: [live_data]
+
+- question: tienen parqueadero?
+  expected: []
+  tags: [not_covered]
+
+- question: que clima va a hacer mañana
+  expected: []
+  tags: [off_topic]
+
+- question: recomiendame una pelicula para el fin de semana
+  expected: []
+  tags: [off_topic]
