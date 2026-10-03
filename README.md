@@ -4,7 +4,7 @@ An open-source AI assistant engine for health clinics, starting with therapy pra
 
 This repository is the engine. It ships with a fictional clinic, "Calma Therapy Center", as demo and test data, written in Spanish because that is the language patients write in. Real clinics configure their own content and credentials privately; none of that belongs in this repo.
 
-> **Status:** early. The knowledge-base ingestion pipeline works; the chat UI, agent and tool calling are next (see the roadmap).
+> **Status:** early. Ingestion, retrieval and retrieval evals work; the answer service, chat UI and tool calling are next (see the roadmap).
 
 ## How it works
 
@@ -78,14 +78,28 @@ Run the tests with `bundle exec rspec`, or everything CI runs with `bin/ci`.
 
 If port 5433 is taken, set `DB_PORT` in `.env` (and in your shell for `docker compose up -d`).
 
+## Evals
+
+Retrieval is measured, not guessed. `evals/retrieval.yml` holds synthetic patient questions in Spanish, each with the seed document(s) that should come back, plus a few questions the knowledge base cannot answer.
+
+```bash
+bin/rails evals:retrieval                  # score retrieval and compare with evals/baseline.json
+SAVE_BASELINE=1 bin/rails evals:retrieval  # record the result as the new baseline
+K=5 bin/rails evals:retrieval              # count a hit within the top 5 instead of 3
+```
+
+It reports hit@1, hit@K and MRR overall and per tag, lists every miss with what was retrieved instead, and compares distances for answerable and unanswerable questions. Run it before and after any change to chunking, the embedding input or the model, and keep the change only if the numbers hold up.
+
+The eval calls the embeddings API (one request per question against the provider's quota), so it is a local command, not part of CI. It only searches the seed documents, so uploads in a development database do not affect the score.
+
 ## Keeping real data out of the repo
 
 This repository is public. Seeds, fixtures and test data are synthetic. Do not commit real clinic content, names or credentials. `.env` and `config/*.key` are gitignored. `config/credentials.yml.enc` is committed but only readable with `config/master.key`, which never leaves your machine and your deployment; everyone who holds it can read every environment's keys, so treat it accordingly.
 
 ## Roadmap
 
-1. **RAG** — ingestion pipeline and retrieval over the clinic's static content *(in progress)*
-2. **Evals** — a question set with expected sources, to tune chunking and retrieval with numbers
+1. **RAG** — ingestion pipeline and retrieval over the clinic's static content *(done)*
+2. **Evals** — retrieval evals *(done)*; answer-quality evals come with the agent
 3. **Tool calling / agent** — live availability and prices through MCP tools
 4. **Guardrails and human handoff** — scope limits, crisis handling, escalation to staff
 5. **Channels** — web chat first, then WhatsApp
