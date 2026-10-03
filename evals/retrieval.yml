@@ -150,6 +150,90 @@
   expected: [policy-minors-and-guardian-consent]
   tags: [policy]
 
+# --- Hard cases -----------------------------------------------------------------
+# Several documents look relevant and only the details pick the right one,
+# or the message is very short or badly spelled.
+
+- question: me da panico hablar en reuniones del trabajo, me quedo en blanco
+  expected: [psychologist-110-lucia-paredes]
+  tags: [psychologist, hard]
+
+- question: estoy embarazada y vivo con una angustia terrible
+  expected: [psychologist-106-hannah-okoye]
+  tags: [psychologist, hard]
+
+- question: mi hija de 6 le tiene miedo a todo y no duerme sola
+  expected: [psychologist-105-camila-duarte]
+  tags: [psychologist, hard]
+
+- question: no duermo por estar dandole vueltas a todo en la cabeza
+  expected: [psychologist-101-elena-marsh]
+  tags: [psychologist, hard]
+
+- question: tuve un parto muy dificil y no dejo de recordarlo
+  expected: [psychologist-106-hannah-okoye]
+  tags: [psychologist, hard]
+
+- question: perdi un embarazo hace dos meses
+  expected: [psychologist-106-hannah-okoye]
+  tags: [psychologist, hard]
+
+- question: mi papa se jubilo y lo veo muy decaido
+  expected: [psychologist-102-tomas-rivera]
+  tags: [psychologist, hard]
+
+- question: quiero dejar de apostar, ya perdi mucha plata
+  expected: [psychologist-107-mateo-fuentes]
+  tags: [psychologist, hard]
+
+- question: cuando estoy triste me como todo lo que hay en la nevera
+  expected: [psychologist-108-sofia-lindqvist]
+  tags: [psychologist, hard]
+
+- question: me entere que mi pareja me fue infiel y no se si seguir
+  expected: [psychologist-104-jonas-weber]
+  tags: [psychologist, hard]
+
+- question: mi hijo de 16 me dijo que es trans y quiero que hable con alguien
+  expected: [psychologist-112-noah-feldman]
+  tags: [psychologist, hard]
+
+- question: siento que en cualquier momento se van a dar cuenta que no sirvo para mi cargo
+  expected: [psychologist-111-amara-bello]
+  tags: [psychologist, hard]
+
+- question: hay alguien que atienda en frances?
+  expected: [psychologist-111-amara-bello, faq-languages]
+  tags: [psychologist, language, multi, hard]
+
+- question: kiero sita cn sicologo d niños
+  expected: [psychologist-105-camila-duarte, faq-children-and-teenagers, faq-booking-first-appointment]
+  tags: [faq, multi, hard]
+
+- question: cancelar
+  expected: [policy-cancellation-and-rescheduling]
+  tags: [policy, hard]
+
+- question: factura
+  expected: [policy-payment]
+  tags: [policy, hard]
+
+- question: se me cayo el internet en plena sesion, me la reponen?
+  expected: [policy-online-sessions]
+  tags: [policy, hard]
+
+- question: falte dos veces sin avisar, perdi mi horario?
+  expected: [policy-late-arrival-and-missed-sessions]
+  tags: [policy, hard]
+
+- question: mi hija de 14 va a terapia, me van a contar lo que ella dice?
+  expected: [policy-minors-and-guardian-consent, faq-children-and-teenagers]
+  tags: [policy, multi, hard]
+
+- question: ya tomo antidepresivos, igual puedo empezar terapia?
+  expected: [faq-medication]
+  tags: [faq, hard]
+
 # --- No answer in the knowledge base (not scored) --------------------------------
 
 - question: cuanto cuesta la sesion?
