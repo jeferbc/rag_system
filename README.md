@@ -2,7 +2,7 @@
 
 An open-source AI assistant engine for health clinics, starting with therapy practices. It answers patient questions from the clinic's own content using retrieval-augmented generation (RAG), and will call live tools for anything that changes minute to minute.
 
-This repository is the engine. It ships with a fictional clinic, "Calma Therapy Center", as demo and test data. Real clinics configure their own content and credentials privately; none of that belongs in this repo.
+This repository is the engine. It ships with a fictional clinic, "Calma Therapy Center", as demo and test data, written in Spanish because that is the language patients write in. Real clinics configure their own content and credentials privately; none of that belongs in this repo.
 
 > **Status:** early. The knowledge-base ingestion pipeline works; the chat UI, agent and tool calling are next (see the roadmap).
 
@@ -48,7 +48,7 @@ Try a search:
 
 ```bash
 bin/rails runner '
-  Chunk.search("psychologist for anxiety in English", limit: 3).each do |chunk|
+  Chunk.search("psicóloga para la ansiedad que atienda en inglés", limit: 3).each do |chunk|
     puts "#{chunk.neighbor_distance.round(3)}  #{chunk.document.title}"
     puts "       #{chunk.content.truncate(120)}"
   end

@@ -39,7 +39,7 @@ RSpec.describe "db/seeds.rb" do
 
     seed
 
-    expect(edited.reload.body).to start_with("Payment is due on the day of each session.")
+    expect(edited.reload.body).to start_with("El pago se realiza el mismo día de cada sesión.")
     expect(edited.chunks).to be_empty
     expect(Document.exists?(uploaded_document.id)).to be(true)
   end
@@ -48,6 +48,6 @@ RSpec.describe "db/seeds.rb" do
   it "contains no prices" do
     seed
 
-    expect(Document.pluck(:body)).to all(satisfy { |body| body !~ /[$€£]|\b(USD|EUR|COP|dollars?|euros?|pesos?)\b/i })
+    expect(Document.pluck(:body)).to all(satisfy { |body| body !~ /[$€£]|\b(USD|EUR|COP|dollars?|euros?|pesos?|dólares)\b/i })
   end
 end

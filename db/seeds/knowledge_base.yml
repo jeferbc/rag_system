@@ -1,395 +1,399 @@
-# Synthetic knowledge base for "Calma Therapy Center", a FICTIONAL clinic.
-# Every person, address and detail below is invented for demos and tests.
-# Never put real clinic content here: real deployments upload their own
-# documents privately.
+# Base de conocimiento sintética de "Calma Therapy Center", una clínica FICTICIA.
+# Todas las personas, direcciones y datos de este archivo son inventados para
+# demos y pruebas. Nunca pongas contenido real de una clínica aquí: cada
+# despliegue real sube sus propios documentos de forma privada.
 #
-# Prices and availability are deliberately absent. They are live data, served
-# by tools at runtime, and must never be embedded.
+# No hay precios ni disponibilidad a propósito. Son datos vivos que se
+# consultan con herramientas en tiempo real y nunca deben embeberse.
+#
+# El contenido está en español porque es el idioma en que escriben los
+# pacientes; la recuperación funciona mejor cuando pregunta y documento
+# comparten idioma.
 
-# --- Psychologists ---------------------------------------------------------
+# --- Psicólogos ---------------------------------------------------------
 
 - id: psychologist-101-elena-marsh
-  title: Elena Marsh, Clinical Psychologist
+  title: Elena Marsh, psicóloga clínica
   category: psychologist
   psychologist_ref: psy-101-elena-marsh
   body: |
-    Elena Marsh is a clinical psychologist at Calma Therapy Center with twelve years of experience helping adults who live with anxiety.
+    Elena Marsh es psicóloga clínica en Calma Therapy Center, con doce años de experiencia acompañando a adultos que viven con ansiedad.
 
-    Specialties: generalized anxiety, panic attacks, health anxiety, phobias and chronic worry. She also works with insomnia that is driven by anxious thinking.
+    Especialidades: ansiedad generalizada, ataques de pánico, ansiedad por la salud, fobias y preocupación constante. También trabaja el insomnio causado por pensamientos ansiosos.
 
-    Approach: Elena practices cognitive behavioral therapy (CBT). Sessions are structured and practical: together you map what triggers the anxiety, test anxious predictions step by step, and practice skills between sessions. She adds mindfulness-based techniques for clients who find it hard to switch off.
+    Enfoque: Elena practica la terapia cognitivo-conductual (TCC). Las sesiones son estructuradas y prácticas: juntos identifican qué dispara la ansiedad, ponen a prueba las predicciones ansiosas paso a paso y practican habilidades entre sesiones. Añade técnicas de mindfulness para quienes les cuesta desconectar.
 
-    Languages: Elena offers therapy in English and Spanish.
+    Idiomas: Elena ofrece terapia en español y en inglés.
 
-    Works with: adults aged 18 and over, in person and online.
+    Atiende a: adultos mayores de 18 años, de forma presencial y en línea.
 
 - id: psychologist-102-tomas-rivera
-  title: Tomás Rivera, Clinical Psychologist
+  title: Tomás Rivera, psicólogo clínico
   category: psychologist
   psychologist_ref: psy-102-tomas-rivera
   body: |
-    Tomás Rivera is a clinical psychologist at Calma Therapy Center who accompanies adults through depression, grief and major life transitions.
+    Tomás Rivera es psicólogo clínico en Calma Therapy Center y acompaña a adultos que atraviesan depresión, duelo y grandes cambios de vida.
 
-    Specialties: depression, low mood, bereavement and loss, loneliness, and adjusting to changes such as migration, divorce or retirement.
+    Especialidades: depresión, estado de ánimo bajo, duelo y pérdidas, soledad, y adaptación a cambios como la migración, el divorcio o la jubilación.
 
-    Approach: Tomás combines behavioral activation with acceptance and commitment therapy (ACT). He helps clients rebuild daily routines that give energy back, and clarify what matters to them so that small actions add up. His style is warm and unhurried.
+    Enfoque: Tomás combina la activación conductual con la terapia de aceptación y compromiso (ACT). Ayuda a reconstruir rutinas diarias que devuelven energía y a aclarar qué es importante para cada persona, para que las pequeñas acciones sumen. Su estilo es cálido y sin prisas.
 
-    Languages: Tomás offers therapy in Spanish and English.
+    Idiomas: Tomás ofrece terapia en español y en inglés.
 
-    Works with: adults and older adults, in person and online.
+    Atiende a: adultos y adultos mayores, de forma presencial y en línea.
 
 - id: psychologist-103-priya-nair
-  title: Priya Nair, Trauma Psychologist
+  title: Priya Nair, psicóloga especialista en trauma
   category: psychologist
   psychologist_ref: psy-103-priya-nair
   body: |
-    Priya Nair is a psychologist at Calma Therapy Center specialized in trauma and its long-term effects.
+    Priya Nair es psicóloga en Calma Therapy Center, especializada en trauma y en sus efectos a largo plazo.
 
-    Specialties: post-traumatic stress (PTSD), childhood trauma, accidents and medical trauma, nightmares and flashbacks, and trauma-related dissociation.
+    Especialidades: estrés postraumático (TEPT), trauma en la infancia, accidentes y trauma médico, pesadillas y flashbacks, y disociación relacionada con el trauma.
 
-    Approach: Priya is trained in EMDR (eye movement desensitization and reprocessing) and trauma-focused CBT. The first sessions focus on safety and stabilization; memory processing only starts when the client feels ready and has the tools to stay grounded.
+    Enfoque: Priya está formada en EMDR (desensibilización y reprocesamiento por movimientos oculares) y en TCC centrada en el trauma. Las primeras sesiones se dedican a la seguridad y la estabilización; el procesamiento de los recuerdos solo empieza cuando la persona se siente preparada y tiene herramientas para mantenerse en calma.
 
-    Languages: Priya offers therapy in English and Hindi.
+    Idiomas: Priya ofrece terapia en inglés y en hindi. No ofrece sesiones en español.
 
-    Works with: adults aged 18 and over, in person and online.
+    Atiende a: adultos mayores de 18 años, de forma presencial y en línea.
 
 - id: psychologist-104-jonas-weber
-  title: Jonas Weber, Couples Therapist
+  title: Jonas Weber, terapeuta de pareja
   category: psychologist
   psychologist_ref: psy-104-jonas-weber
   body: |
-    Jonas Weber is a psychologist and couples therapist at Calma Therapy Center.
+    Jonas Weber es psicólogo y terapeuta de pareja en Calma Therapy Center.
 
-    Specialties: couples therapy, communication problems, recurring conflict, rebuilding trust after infidelity, intimacy difficulties, and deciding whether to stay together or separate.
+    Especialidades: terapia de pareja, problemas de comunicación, conflictos repetidos, reconstrucción de la confianza tras una infidelidad, dificultades en la intimidad, y la decisión de seguir juntos o separarse.
 
-    Approach: Jonas works with emotionally focused therapy (EFT) and the Gottman method. Sessions slow down the arguments that keep repeating so that each partner can say what is underneath them. He sees both partners together and may offer one individual session each at the start.
+    Enfoque: Jonas trabaja con la terapia focalizada en las emociones (TFE) y el método Gottman. Las sesiones frenan las discusiones que se repiten para que cada miembro de la pareja pueda decir lo que hay debajo. Atiende a la pareja junta y puede ofrecer una sesión individual a cada uno al inicio.
 
-    Languages: Jonas offers therapy in English and German.
+    Idiomas: Jonas ofrece terapia en español, en inglés y en alemán.
 
-    Works with: couples of any orientation, and individuals with relationship concerns. In person and online.
+    Atiende a: parejas de cualquier orientación y personas con dificultades de pareja. Presencial y en línea.
 
 - id: psychologist-105-camila-duarte
-  title: Camila Duarte, Child and Adolescent Psychologist
+  title: Camila Duarte, psicóloga infantil y de adolescentes
   category: psychologist
   psychologist_ref: psy-105-camila-duarte
   body: |
-    Camila Duarte is a child and adolescent psychologist at Calma Therapy Center.
+    Camila Duarte es psicóloga infantil y de adolescentes en Calma Therapy Center.
 
-    Specialties: childhood anxiety and fears, school refusal, behavior difficulties, emotional regulation, bullying, and supporting children through a separation or a loss in the family.
+    Especialidades: ansiedad y miedos en la infancia, rechazo escolar, dificultades de conducta, regulación emocional, acoso escolar, y acompañamiento a niños ante una separación o una pérdida en la familia.
 
-    Approach: With younger children Camila uses play therapy; with adolescents she uses CBT adapted to their age. Parents are part of the process: she holds regular parent sessions and gives concrete guidance for home and school.
+    Enfoque: con los más pequeños Camila usa terapia de juego; con adolescentes, TCC adaptada a su edad. Los padres forman parte del proceso: mantiene sesiones periódicas con ellos y da pautas concretas para casa y para el colegio.
 
-    Languages: Camila offers therapy in Portuguese and Spanish. She does not offer sessions in English.
+    Idiomas: Camila ofrece terapia en español y en portugués. No ofrece sesiones en inglés.
 
-    Works with: children from age 5 and adolescents up to 17, in person. Online sessions are available for adolescents and for parent guidance.
+    Atiende a: niños desde los 5 años y adolescentes hasta los 17, de forma presencial. Las sesiones en línea están disponibles para adolescentes y para la orientación a padres.
 
 - id: psychologist-106-hannah-okoye
-  title: Hannah Okoye, Perinatal Psychologist
+  title: Hannah Okoye, psicóloga perinatal
   category: psychologist
   psychologist_ref: psy-106-hannah-okoye
   body: |
-    Hannah Okoye is a psychologist at Calma Therapy Center focused on mental health during pregnancy and early parenthood.
+    Hannah Okoye es psicóloga en Calma Therapy Center, centrada en la salud mental durante el embarazo y la primera etapa de la crianza.
 
-    Specialties: postpartum depression, anxiety during pregnancy and after birth, birth trauma, pregnancy loss, fertility-related stress, and the identity shift of becoming a parent.
+    Especialidades: depresión posparto, ansiedad durante el embarazo y tras el parto, parto traumático, pérdida gestacional, estrés relacionado con la fertilidad, y el cambio de identidad que supone ser madre o padre.
 
-    Approach: Hannah integrates interpersonal therapy (IPT) with compassion-focused work. She pays attention to sleep, support networks and the couple relationship, and coordinates with midwives or physicians when the client asks her to.
+    Enfoque: Hannah integra la terapia interpersonal (TIP) con la terapia centrada en la compasión. Presta atención al sueño, a la red de apoyo y a la relación de pareja, y se coordina con matronas o médicos cuando la persona lo pide.
 
-    Languages: Hannah offers therapy in English.
+    Idiomas: Hannah ofrece terapia en español y en inglés.
 
-    Works with: adults who are expecting, new parents and partners. In person and online; babies are welcome in the session.
+    Atiende a: adultos que esperan un bebé, madres y padres recientes y sus parejas. Presencial y en línea; los bebés son bienvenidos en la sesión.
 
 - id: psychologist-107-mateo-fuentes
-  title: Mateo Fuentes, Addiction Psychologist
+  title: Mateo Fuentes, psicólogo especialista en adicciones
   category: psychologist
   psychologist_ref: psy-107-mateo-fuentes
   body: |
-    Mateo Fuentes is a psychologist at Calma Therapy Center who works with addiction and compulsive behaviors.
+    Mateo Fuentes es psicólogo en Calma Therapy Center y trabaja con adicciones y conductas compulsivas.
 
-    Specialties: alcohol and substance use, gambling, compulsive use of screens and video games, relapse prevention, and support for family members.
+    Especialidades: consumo de alcohol y otras sustancias, juego, uso compulsivo de pantallas y videojuegos, prevención de recaídas, y apoyo a familiares.
 
-    Approach: Mateo uses motivational interviewing and CBT for relapse prevention. He starts from the client's own reasons for change, without judgment, and builds a concrete plan for high-risk situations. He coordinates with medical services when detox or medication is needed.
+    Enfoque: Mateo utiliza la entrevista motivacional y la TCC para la prevención de recaídas. Parte de las propias razones de cada persona para cambiar, sin juicios, y construye un plan concreto para las situaciones de riesgo. Se coordina con servicios médicos cuando hace falta desintoxicación o medicación.
 
-    Languages: Mateo offers therapy in Spanish only.
+    Idiomas: Mateo ofrece terapia únicamente en español.
 
-    Works with: adults aged 18 and over and their families, in person and online.
+    Atiende a: adultos mayores de 18 años y sus familias, de forma presencial y en línea.
 
 - id: psychologist-108-sofia-lindqvist
-  title: Sofia Lindqvist, Psychologist for Eating Disorders
+  title: Sofia Lindqvist, psicóloga especialista en trastornos alimentarios
   category: psychologist
   psychologist_ref: psy-108-sofia-lindqvist
   body: |
-    Sofia Lindqvist is a psychologist at Calma Therapy Center specialized in eating disorders and body image.
+    Sofia Lindqvist es psicóloga en Calma Therapy Center, especializada en trastornos de la conducta alimentaria e imagen corporal.
 
-    Specialties: anorexia, bulimia, binge eating, emotional eating, body image distress and perfectionism.
+    Especialidades: anorexia, bulimia, trastorno por atracón, alimentación emocional, malestar con la imagen corporal y perfeccionismo.
 
-    Approach: Sofia practices enhanced CBT for eating disorders (CBT-E) and, with adolescents, family-based treatment. She works alongside the client's physician and dietitian, because recovery needs medical and nutritional follow-up as well as therapy.
+    Enfoque: Sofia practica la TCC mejorada para trastornos alimentarios (TCC-E) y, con adolescentes, el tratamiento basado en la familia. Trabaja junto al médico y al nutricionista de cada persona, porque la recuperación necesita seguimiento médico y nutricional además de terapia.
 
-    Languages: Sofia offers therapy in English and Swedish.
+    Idiomas: Sofia ofrece terapia en español, en inglés y en sueco.
 
-    Works with: adolescents from age 14 and adults, in person and online.
+    Atiende a: adolescentes desde los 14 años y adultos, de forma presencial y en línea.
 
 - id: psychologist-109-david-chen
-  title: David Chen, Psychologist for Adult ADHD
+  title: David Chen, psicólogo especialista en TDAH en adultos
   category: psychologist
   psychologist_ref: psy-109-david-chen
   body: |
-    David Chen is a psychologist at Calma Therapy Center who works with adults with ADHD and other attention difficulties.
+    David Chen es psicólogo en Calma Therapy Center y trabaja con adultos con TDAH y otras dificultades de atención.
 
-    Specialties: adult ADHD, procrastination, disorganization, time management, emotional impulsivity, and the low self-esteem that often comes from years of feeling "lazy" or "messy".
+    Especialidades: TDAH en adultos, procrastinación, desorganización, gestión del tiempo, impulsividad emocional, y la baja autoestima que suele dejar años de sentirse "vago" o "desordenado".
 
-    Approach: David offers CBT adapted for ADHD together with practical coaching on executive functioning. Sessions produce systems the client actually uses: external reminders, task breakdown, and routines designed around how their attention works.
+    Enfoque: David ofrece TCC adaptada al TDAH junto con acompañamiento práctico en funciones ejecutivas. De las sesiones salen sistemas que la persona realmente usa: recordatorios externos, división de tareas y rutinas diseñadas según cómo funciona su atención.
 
-    Languages: David offers therapy in English and Mandarin.
+    Idiomas: David ofrece terapia en español, en inglés y en mandarín.
 
-    Works with: adults and university students, in person and online. He provides psychological assessment of ADHD; he does not prescribe medication.
+    Atiende a: adultos y estudiantes universitarios, de forma presencial y en línea. Realiza evaluación psicológica del TDAH; no prescribe medicación.
 
 - id: psychologist-110-lucia-paredes
-  title: Lucía Paredes, Psychologist for OCD and Social Anxiety
+  title: Lucía Paredes, psicóloga especialista en TOC y ansiedad social
   category: psychologist
   psychologist_ref: psy-110-lucia-paredes
   body: |
-    Lucía Paredes is a psychologist at Calma Therapy Center specialized in obsessive-compulsive disorder and social anxiety.
+    Lucía Paredes es psicóloga en Calma Therapy Center, especializada en trastorno obsesivo-compulsivo y ansiedad social.
 
-    Specialties: OCD, intrusive thoughts, compulsive checking and cleaning, social anxiety, fear of public speaking, and shyness that limits work or study.
+    Especialidades: TOC, pensamientos intrusivos, comprobaciones y limpieza compulsivas, ansiedad social, miedo a hablar en público, y timidez que limita el trabajo o los estudios.
 
-    Approach: Lucía uses exposure and response prevention (ERP), the reference treatment for OCD, and CBT for social anxiety. Exposure is always gradual and agreed in advance: the client sets the pace.
+    Enfoque: Lucía utiliza la exposición con prevención de respuesta (EPR), el tratamiento de referencia para el TOC, y la TCC para la ansiedad social. La exposición es siempre gradual y acordada de antemano: la persona marca el ritmo.
 
-    Languages: Lucía offers therapy in Spanish only.
+    Idiomas: Lucía ofrece terapia únicamente en español.
 
-    Works with: adolescents from age 16 and adults, in person and online.
+    Atiende a: adolescentes desde los 16 años y adultos, de forma presencial y en línea.
 
 - id: psychologist-111-amara-bello
-  title: Amara Bello, Psychologist for Stress and Burnout
+  title: Amara Bello, psicóloga especialista en estrés y burnout
   category: psychologist
   psychologist_ref: psy-111-amara-bello
   body: |
-    Amara Bello is a psychologist at Calma Therapy Center who helps people dealing with work stress and burnout.
+    Amara Bello es psicóloga en Calma Therapy Center y ayuda a personas con estrés laboral y burnout.
 
-    Specialties: burnout, chronic stress, work-related anxiety, perfectionism, impostor feelings, and difficulty setting limits between work and personal life.
+    Especialidades: burnout, estrés crónico, ansiedad relacionada con el trabajo, perfeccionismo, síndrome del impostor, y dificultad para poner límites entre el trabajo y la vida personal.
 
-    Approach: Amara combines mindfulness-based stress reduction (MBSR) with ACT. She helps clients recognize early signs of exhaustion, recover, and then change the patterns that led there, including how they negotiate workload and say no.
+    Enfoque: Amara combina la reducción del estrés basada en mindfulness (MBSR) con ACT. Ayuda a reconocer las primeras señales de agotamiento, a recuperarse y, después, a cambiar los patrones que llevaron hasta ahí, incluida la forma de negociar la carga de trabajo y de decir que no.
 
-    Languages: Amara offers therapy in English and French.
+    Idiomas: Amara ofrece terapia en español, en inglés y en francés.
 
-    Works with: adults, in person and online.
+    Atiende a: adultos, de forma presencial y en línea.
 
 - id: psychologist-112-noah-feldman
-  title: Noah Feldman, LGBTQ+ Affirming Psychologist
+  title: Noah Feldman, psicólogo con enfoque afirmativo LGBTQ+
   category: psychologist
   psychologist_ref: psy-112-noah-feldman
   body: |
-    Noah Feldman is a psychologist at Calma Therapy Center offering LGBTQ+ affirming therapy.
+    Noah Feldman es psicólogo en Calma Therapy Center y ofrece terapia afirmativa para personas LGBTQ+.
 
-    Specialties: sexual orientation and gender identity, coming out, minority stress, family acceptance, self-esteem, and relationship concerns in LGBTQ+ couples.
+    Especialidades: orientación sexual e identidad de género, salida del armario, estrés de minoría, aceptación familiar, autoestima, y dificultades de pareja en parejas LGBTQ+.
 
-    Approach: Noah works from a person-centered and affirming stance, with tools from CBT and narrative therapy. Clients do not need to explain or justify who they are; therapy focuses on what they want to change or understand.
+    Enfoque: Noah trabaja desde una postura centrada en la persona y afirmativa, con herramientas de la TCC y de la terapia narrativa. Nadie tiene que explicar ni justificar quién es; la terapia se centra en lo que la persona quiere cambiar o entender.
 
-    Languages: Noah offers therapy in English.
+    Idiomas: Noah ofrece terapia en español y en inglés.
 
-    Works with: adolescents from age 15 and adults, in person and online.
+    Atiende a: adolescentes desde los 15 años y adultos, de forma presencial y en línea.
 
-# --- Frequently asked questions -------------------------------------------
+# --- Preguntas frecuentes -------------------------------------------------
 
 - id: faq-booking-first-appointment
-  title: "FAQ: How do I book a first appointment?"
+  title: "Preguntas frecuentes: ¿Cómo reservo una primera cita?"
   category: faq
   body: |
-    You can book a first appointment at Calma Therapy Center through this assistant, by phone, or at the front desk.
+    Puedes reservar una primera cita en Calma Therapy Center a través de este asistente, por teléfono o en recepción.
 
-    To book, we need your name, a contact phone or email, whether you prefer in-person or online sessions, and the language you would like therapy in. If you already know which psychologist you want to see, tell us; otherwise we will suggest one based on what you are looking for.
+    Para reservar necesitamos tu nombre, un teléfono o correo de contacto, si prefieres sesiones presenciales o en línea, y el idioma en el que quieres hacer terapia. Si ya sabes con qué psicólogo o psicóloga quieres ir, dínoslo; si no, te sugeriremos a alguien según lo que buscas.
 
-    Available times change constantly, so they are always checked live at the moment you book. You will receive a confirmation message with the date, time and format of the session.
+    Los horarios disponibles cambian constantemente, así que siempre se consultan en vivo en el momento de reservar. Recibirás un mensaje de confirmación con la fecha, la hora y el formato de la sesión.
 
 - id: faq-first-session
-  title: "FAQ: What happens in the first session?"
+  title: "Preguntas frecuentes: ¿Qué pasa en la primera sesión?"
   category: faq
   body: |
-    The first session is a conversation to get to know you and understand what brings you to therapy. It is not an exam and there are no wrong answers.
+    La primera sesión es una conversación para conocerte y entender qué te trae a terapia. No es un examen y no hay respuestas incorrectas.
 
-    Your psychologist will ask about what you are going through, how long it has been happening, your health and your daily life, and what you would like to be different. You can also ask anything about how they work.
+    Tu psicólogo o psicóloga te preguntará por lo que estás viviendo, desde cuándo, por tu salud y tu día a día, y por lo que te gustaría que fuera diferente. Tú también puedes preguntar lo que quieras sobre cómo trabaja.
 
-    At the end, the psychologist will share a first impression and propose a plan: how often to meet and what the first goals could be. You decide whether to continue. If you feel the fit is not right, we will help you find another professional in the team.
+    Al final, te compartirá una primera impresión y te propondrá un plan: con qué frecuencia veros y cuáles podrían ser los primeros objetivos. Tú decides si continuar. Si sientes que no encajas, te ayudaremos a encontrar a otro profesional del equipo.
 
 - id: faq-online-sessions
-  title: "FAQ: Do you offer online sessions?"
+  title: "Preguntas frecuentes: ¿Ofrecen sesiones en línea?"
   category: faq
   body: |
-    Yes. Most psychologists at Calma Therapy Center offer online sessions by secure video call, and research shows they are as effective as in-person therapy for most concerns.
+    Sí. La mayoría de los psicólogos de Calma Therapy Center ofrecen sesiones en línea por videollamada segura, y la investigación muestra que son tan eficaces como la terapia presencial para la mayoría de los problemas.
 
-    You need a private space, a stable internet connection, and a phone, tablet or computer with a camera. You will receive a link before each session; there is nothing to install.
+    Necesitas un espacio privado, una conexión a internet estable y un teléfono, tableta o computador con cámara. Recibirás un enlace antes de cada sesión; no hay que instalar nada.
 
-    You can combine both formats, for example in person most weeks and online when you travel. Therapy with young children is offered in person only.
+    Puedes combinar ambos formatos, por ejemplo presencial la mayoría de las semanas y en línea cuando viajes. La terapia con niños pequeños se ofrece solo de forma presencial.
 
 - id: faq-session-length-frequency
-  title: "FAQ: How long is a session and how often will I come?"
+  title: "Preguntas frecuentes: ¿Cuánto dura una sesión y con qué frecuencia vendré?"
   category: faq
   body: |
-    Individual sessions last 50 minutes. Couples and family sessions last 75 minutes.
+    Las sesiones individuales duran 50 minutos. Las sesiones de pareja y de familia duran 75 minutos.
 
-    Most people start with one session per week. As things improve, sessions are usually spaced out to every two weeks and then monthly before finishing.
+    La mayoría de las personas empiezan con una sesión por semana. A medida que las cosas mejoran, las sesiones suelen espaciarse a cada dos semanas y después a una al mes antes de terminar.
 
-    How long therapy lasts depends on your goals. Some people come for a few months to work on a specific problem; others choose a longer process. Your psychologist will review progress with you regularly, so you always know where you are.
+    La duración de la terapia depende de tus objetivos. Algunas personas vienen unos meses para trabajar un problema concreto; otras eligen un proceso más largo. Tu psicólogo o psicóloga revisará contigo los avances con regularidad, para que siempre sepas en qué punto estás.
 
 - id: faq-choosing-a-psychologist
-  title: "FAQ: How do I choose the right psychologist?"
+  title: "Preguntas frecuentes: ¿Cómo elijo al psicólogo adecuado?"
   category: faq
   body: |
-    Start from what you want help with and the language you want to speak in. Each psychologist at Calma Therapy Center has a profile describing their specialties, their approach and the languages they work in.
+    Parte de aquello en lo que quieres ayuda y del idioma en el que quieres hablar. Cada psicólogo de Calma Therapy Center tiene un perfil que describe sus especialidades, su enfoque y los idiomas en los que trabaja.
 
-    If you are not sure, describe your situation in a few sentences and we will suggest one or two professionals whose experience matches. For example, we have psychologists focused on anxiety, depression and grief, trauma, couples, children and adolescents, perinatal mental health, addiction, eating disorders, adult ADHD, OCD, burnout, and LGBTQ+ affirming therapy.
+    Si no estás seguro, describe tu situación en unas frases y te sugeriremos uno o dos profesionales cuya experiencia encaje. Por ejemplo, tenemos psicólogos centrados en ansiedad, depresión y duelo, trauma, pareja, niños y adolescentes, salud mental perinatal, adicciones, trastornos alimentarios, TDAH en adultos, TOC, burnout y terapia afirmativa LGBTQ+.
 
-    The relationship with your therapist matters as much as the method. If after a few sessions it does not feel right, you can change at any time.
+    La relación con tu terapeuta importa tanto como el método. Si después de unas sesiones no te sientes a gusto, puedes cambiar en cualquier momento.
 
 - id: faq-confidentiality
-  title: "FAQ: Is what I say in therapy confidential?"
+  title: "Preguntas frecuentes: ¿Lo que cuento en terapia es confidencial?"
   category: faq
   body: |
-    Yes. Everything you discuss with your psychologist is confidential and protected by professional secrecy. We do not share information with your family, employer or anyone else without your written consent.
+    Sí. Todo lo que hables con tu psicólogo o psicóloga es confidencial y está protegido por el secreto profesional. No compartimos información con tu familia, tu empleador ni nadie más sin tu consentimiento por escrito.
 
-    There are a few legal exceptions: when there is a serious and imminent risk to your life or someone else's, when a minor or vulnerable person is being harmed, or when a court orders it. Your psychologist will explain these limits in the first session.
+    Hay unas pocas excepciones legales: cuando existe un riesgo grave e inminente para tu vida o la de otra persona, cuando un menor o una persona vulnerable está sufriendo daño, o cuando lo ordena un juez. Tu psicólogo te explicará estos límites en la primera sesión.
 
-    See our privacy and confidentiality policy for details on how records are stored.
+    Consulta nuestra política de privacidad y confidencialidad para saber cómo se guardan los registros.
 
 - id: faq-children-and-teenagers
-  title: "FAQ: Do you work with children and teenagers?"
+  title: "Preguntas frecuentes: ¿Atienden a niños y adolescentes?"
   category: faq
   body: |
-    Yes. Calma Therapy Center has psychologists specialized in children from age 5 and in adolescents.
+    Sí. Calma Therapy Center cuenta con psicólogos especializados en niños desde los 5 años y en adolescentes.
 
-    For children, the first appointment is usually with the parents or guardians alone, to understand the situation. After that the psychologist meets the child, and parents are involved throughout with regular guidance sessions.
+    Con los niños, la primera cita suele ser solo con los padres o tutores, para entender la situación. Después el psicólogo conoce al niño, y los padres participan durante todo el proceso con sesiones periódicas de orientación.
 
-    Adolescents are usually seen on their own, with occasional family sessions. What a teenager says in session is confidential, with the safety exceptions that the psychologist explains to both the teenager and the parents at the start.
+    A los adolescentes se les suele atender a solas, con alguna sesión familiar ocasional. Lo que cuenta un adolescente en sesión es confidencial, con las excepciones de seguridad que el psicólogo explica al inicio tanto al adolescente como a los padres.
 
-    A parent or legal guardian must give consent before therapy with a minor begins.
+    Un padre, madre o tutor legal debe dar su consentimiento antes de empezar la terapia con un menor.
 
 - id: faq-couples-and-family-therapy
-  title: "FAQ: Do you offer couples and family therapy?"
+  title: "Preguntas frecuentes: ¿Ofrecen terapia de pareja y de familia?"
   category: faq
   body: |
-    Yes. We offer couples therapy and family therapy at Calma Therapy Center.
+    Sí. En Calma Therapy Center ofrecemos terapia de pareja y terapia familiar.
 
-    Couples therapy is for partners who want to improve communication, get out of repeated arguments, rebuild trust, or make a decision about the relationship. Both partners attend together.
+    La terapia de pareja es para parejas que quieren mejorar la comunicación, salir de discusiones repetidas, reconstruir la confianza o tomar una decisión sobre la relación. Ambos miembros asisten juntos.
 
-    Family therapy helps when a difficulty affects the whole household, such as conflict with a teenager, a separation, or an illness in the family.
+    La terapia familiar ayuda cuando una dificultad afecta a toda la casa, como un conflicto con un adolescente, una separación o una enfermedad en la familia.
 
-    The therapist does not take sides. Their role is to help everyone be heard and to find new ways of relating.
+    El terapeuta no toma partido. Su papel es ayudar a que todos sean escuchados y a encontrar nuevas formas de relacionarse.
 
 - id: faq-languages
-  title: "FAQ: What languages are sessions available in?"
+  title: "Preguntas frecuentes: ¿En qué idiomas se ofrecen las sesiones?"
   category: faq
   body: |
-    Therapy at Calma Therapy Center is available in English and Spanish with several psychologists. Depending on the professional, sessions are also offered in Portuguese, French, German, Swedish, Hindi and Mandarin.
+    En Calma Therapy Center la terapia está disponible en español con la mayoría de los psicólogos y en inglés con varios de ellos. Según el profesional, también se ofrecen sesiones en portugués, francés, alemán, sueco, hindi y mandarín.
 
-    Each psychologist's profile lists the languages they work in. Therapy works best in the language you feel most comfortable expressing emotions in, so tell us your preference when you book.
+    El perfil de cada psicólogo indica los idiomas en los que trabaja. La terapia funciona mejor en el idioma en el que te sientes más cómodo expresando emociones, así que dinos tu preferencia al reservar.
 
-    Our front desk and this assistant can help you in English and Spanish.
+    Nuestra recepción y este asistente pueden atenderte en español y en inglés.
 
 - id: faq-switching-psychologist
-  title: "FAQ: Can I switch to a different psychologist?"
+  title: "Preguntas frecuentes: ¿Puedo cambiar de psicólogo?"
   category: faq
   body: |
-    Yes, at any time and without having to justify it. Feeling comfortable with your therapist is essential for therapy to work.
+    Sí, en cualquier momento y sin tener que justificarlo. Sentirte a gusto con tu terapeuta es esencial para que la terapia funcione.
 
-    You can tell your current psychologist directly, or ask the front desk or this assistant. We will suggest another professional who fits what you need.
+    Puedes decírselo directamente a tu psicólogo actual, o pedirlo en recepción o a este asistente. Te sugeriremos a otro profesional que encaje con lo que necesitas.
 
-    With your permission, your new psychologist can receive a short summary from the previous one so you do not have to start from zero.
+    Con tu permiso, tu nuevo psicólogo puede recibir un breve resumen del anterior para que no tengas que empezar de cero.
 
 - id: faq-medication
-  title: "FAQ: Do you prescribe medication?"
+  title: "Preguntas frecuentes: ¿Recetan medicación?"
   category: faq
   body: |
-    No. The professionals at Calma Therapy Center are psychologists, and psychologists do not prescribe medication. We offer psychological assessment and psychotherapy.
+    No. Los profesionales de Calma Therapy Center son psicólogos, y los psicólogos no recetan medicación. Ofrecemos evaluación psicológica y psicoterapia.
 
-    If your psychologist thinks medication could help, they will recommend a consultation with a psychiatrist or with your family doctor and, with your consent, coordinate with them.
+    Si tu psicólogo considera que la medicación podría ayudarte, te recomendará una consulta con un psiquiatra o con tu médico de cabecera y, con tu consentimiento, se coordinará con ellos.
 
-    If you already take psychiatric medication, you can start therapy normally. Please do not stop or change medication without talking to the doctor who prescribed it.
+    Si ya tomas medicación psiquiátrica, puedes empezar terapia con normalidad. Por favor, no dejes ni cambies la medicación sin hablar con el médico que te la recetó.
 
 - id: faq-crisis-and-emergencies
-  title: "FAQ: What should I do in a crisis or emergency?"
+  title: "Preguntas frecuentes: ¿Qué hago en una crisis o una emergencia?"
   category: faq
   body: |
-    Calma Therapy Center is not an emergency service. If you or someone else is in immediate danger, or you are thinking about harming yourself, call your local emergency number or go to the nearest hospital emergency department right now.
+    Calma Therapy Center no es un servicio de emergencias. Si tú u otra persona están en peligro inmediato, o estás pensando en hacerte daño, llama ahora mismo al número de emergencias de tu zona o acude al servicio de urgencias del hospital más cercano.
 
-    This assistant cannot handle emergencies and messages are not monitored around the clock.
+    Este asistente no puede atender emergencias y los mensajes no se revisan las 24 horas.
 
-    If you are a current client and are going through a difficult moment that is not an emergency, contact the front desk during opening hours and we will let your psychologist know so they can get back to you.
+    Si ya eres paciente y estás pasando por un momento difícil que no es una emergencia, contacta con recepción en horario de atención y avisaremos a tu psicólogo para que se ponga en contacto contigo.
 
-# --- Policies ---------------------------------------------------------------
+# --- Políticas --------------------------------------------------------------
 
 - id: policy-cancellation-and-rescheduling
-  title: Cancellation and Rescheduling Policy
+  title: Política de cancelación y cambios de cita
   category: policy
   body: |
-    Your session time is reserved exclusively for you. If you cannot attend, please let us know as early as possible so the time can be offered to someone else.
+    La hora de tu sesión está reservada exclusivamente para ti. Si no puedes asistir, avísanos con la mayor antelación posible para que ese horario pueda ofrecerse a otra persona.
 
-    You can cancel or reschedule free of charge up to 24 hours before the start of the session. You can do it through this assistant, by phone, or at the front desk.
+    Puedes cancelar o cambiar tu cita sin coste hasta 24 horas antes del inicio de la sesión. Puedes hacerlo a través de este asistente, por teléfono o en recepción.
 
-    Cancellations made with less than 24 hours' notice, and sessions that are missed without notice, are charged the full session fee. Exceptions are made for medical emergencies and other serious unforeseen events; talk to the front desk.
+    Las cancelaciones con menos de 24 horas de antelación y las sesiones a las que no se asiste sin avisar se cobran al importe completo de la sesión. Se hacen excepciones por emergencias médicas y otros imprevistos graves; habla con recepción.
 
-    If your psychologist has to cancel, you will be offered a new time and will not be charged.
+    Si es tu psicólogo quien tiene que cancelar, se te ofrecerá un nuevo horario y no se te cobrará nada.
 
 - id: policy-payment
-  title: Payment Policy
+  title: Política de pago
   category: policy
   body: |
-    Payment is due on the day of each session. For online sessions, payment is made before the session starts using the secure link sent with your confirmation.
+    El pago se realiza el mismo día de cada sesión. En las sesiones en línea, el pago se hace antes de empezar mediante el enlace seguro que se envía con la confirmación.
 
-    We accept debit and credit cards, bank transfer, and contactless payment at the front desk. We do not accept cash for online sessions.
+    Aceptamos tarjeta de débito y de crédito, transferencia bancaria y pago sin contacto en recepción. No aceptamos efectivo para las sesiones en línea.
 
-    You will receive an itemized receipt for every payment. Many health insurance plans reimburse psychotherapy in part; we can issue the documents your insurer asks for, but reimbursement is arranged between you and your insurer.
+    Recibirás un recibo detallado de cada pago. Muchos seguros de salud reembolsan parte de la psicoterapia; podemos emitir los documentos que tu aseguradora pida, pero el reembolso se gestiona entre tú y tu aseguradora.
 
-    Session fees depend on the type of session and are confirmed when you book. Ask this assistant or the front desk for the current fees at any time.
+    Las tarifas dependen del tipo de sesión y se confirman al reservar. Pregunta a este asistente o en recepción por las tarifas vigentes en cualquier momento.
 
-    If you are experiencing financial difficulty, tell your psychologist or the front desk before a balance builds up, so that we can look at options together.
+    Si estás pasando por dificultades económicas, coméntalo con tu psicólogo o en recepción antes de que se acumule un saldo pendiente, para buscar opciones juntos.
 
 - id: policy-late-arrival-and-missed-sessions
-  title: Late Arrival and Missed Sessions Policy
+  title: Política de retrasos y sesiones no asistidas
   category: policy
   body: |
-    Sessions start and end at the scheduled time. If you arrive late, the session still ends at the original time, because another person is booked afterwards, and it is charged in full.
+    Las sesiones empiezan y terminan a la hora programada. Si llegas tarde, la sesión termina igualmente a la hora prevista, porque hay otra persona citada después, y se cobra completa.
 
-    If you are more than 20 minutes late without letting us know, the session is considered missed and the cancellation policy applies.
+    Si llegas con más de 20 minutos de retraso sin avisar, la sesión se considera no asistida y se aplica la política de cancelación.
 
-    If your psychologist is running late, you will receive your full session time or the difference will be made up at a later session.
+    Si es tu psicólogo quien va con retraso, recibirás el tiempo completo de tu sesión o se compensará la diferencia en una sesión posterior.
 
-    After two consecutive missed sessions without notice, we may release your regular time slot. You are always welcome to book again.
+    Tras dos sesiones consecutivas no asistidas sin aviso, es posible que liberemos tu horario habitual. Siempre serás bienvenido para volver a reservar.
 
 - id: policy-privacy-and-confidentiality
-  title: Privacy and Confidentiality Policy
+  title: Política de privacidad y confidencialidad
   category: policy
   body: |
-    Calma Therapy Center treats all personal and health information as strictly confidential.
+    Calma Therapy Center trata toda la información personal y de salud como estrictamente confidencial.
 
-    What we keep: contact details, appointment history, payment records and the clinical notes written by your psychologist. Clinical notes can only be read by your psychologist.
+    Qué guardamos: datos de contacto, historial de citas, registros de pago y las notas clínicas que escribe tu psicólogo. Las notas clínicas solo puede leerlas tu psicólogo.
 
-    How we protect it: records are stored in an encrypted clinical records system with individual access controls. Paper documents are kept in locked cabinets.
+    Cómo la protegemos: los registros se guardan en un sistema de historia clínica cifrado con controles de acceso individuales. Los documentos en papel se guardan en archivadores cerrados con llave.
 
-    Sharing: we never share your information with third parties without your written consent, except where the law requires it, such as a serious and imminent risk to someone's safety or a court order.
+    Con quién la compartimos: nunca compartimos tu información con terceros sin tu consentimiento por escrito, salvo cuando la ley lo exige, como ante un riesgo grave e inminente para la seguridad de alguien o una orden judicial.
 
-    Your rights: you can ask to see your records, correct them, or request a report for another professional. Requests are made in writing at the front desk.
+    Tus derechos: puedes pedir ver tus registros, corregirlos o solicitar un informe para otro profesional. Las solicitudes se hacen por escrito en recepción.
 
-    Conversations with this assistant are used to help you with your request. Please do not share detailed clinical information in chat; keep that for your sessions.
+    Las conversaciones con este asistente se usan para ayudarte con tu solicitud. Por favor, no compartas información clínica detallada en el chat; guárdala para tus sesiones.
 
 - id: policy-online-sessions
-  title: Online Sessions Policy
+  title: Política de sesiones en línea
   category: policy
   body: |
-    Online sessions at Calma Therapy Center take place by secure, encrypted video call. Sessions are never recorded by the clinic, and clients may not record them either.
+    Las sesiones en línea de Calma Therapy Center se realizan por videollamada segura y cifrada. La clínica nunca graba las sesiones, y los pacientes tampoco pueden grabarlas.
 
-    Please connect from a private, quiet place where you will not be interrupted, and not while driving. Use headphones if other people are nearby. Your psychologist will also be in a private room.
+    Por favor, conéctate desde un lugar privado y tranquilo donde no te interrumpan, y nunca mientras conduces. Usa auriculares si hay otras personas cerca. Tu psicólogo también estará en una sala privada.
 
-    If the connection fails, your psychologist will try to reconnect and then call you by phone to continue or to agree on a new time. Time lost to technical problems on our side is made up.
+    Si la conexión falla, tu psicólogo intentará reconectar y después te llamará por teléfono para continuar o acordar una nueva hora. El tiempo perdido por problemas técnicos de nuestra parte se compensa.
 
-    Online sessions follow the same cancellation and payment policies as in-person sessions. For safety reasons, we ask you to confirm the address you are connecting from at the start of each session.
+    Las sesiones en línea siguen las mismas políticas de cancelación y pago que las presenciales. Por seguridad, te pediremos confirmar la dirección desde la que te conectas al inicio de cada sesión.
 
 - id: policy-minors-and-guardian-consent
-  title: Minors and Guardian Consent Policy
+  title: Política de menores y consentimiento de tutores
   category: policy
   body: |
-    Therapy with anyone under 18 requires the written consent of a parent or legal guardian before the first session. When parents are separated and share custody, we ask for the consent of both.
+    La terapia con cualquier persona menor de 18 años requiere el consentimiento por escrito de un padre, madre o tutor legal antes de la primera sesión. Cuando los padres están separados y comparten la custodia, pedimos el consentimiento de ambos.
 
-    A parent or guardian must be reachable during the session of a child under 12 and must stay in the waiting area during in-person sessions.
+    Un padre, madre o tutor debe estar localizable durante la sesión de un niño menor de 12 años y debe permanecer en la sala de espera durante las sesiones presenciales.
 
-    What a child or adolescent says in therapy is confidential. Parents receive regular updates about goals and progress, but not the details of each session. The psychologist will always inform parents if there is a risk to the young person's safety.
+    Lo que un niño o adolescente cuenta en terapia es confidencial. Los padres reciben información periódica sobre los objetivos y los avances, pero no los detalles de cada sesión. El psicólogo siempre informará a los padres si existe un riesgo para la seguridad del menor.
 
-    Appointments, cancellations and payments for minors are managed by the parent or guardian.
+    Las citas, cancelaciones y pagos de los menores los gestiona el padre, madre o tutor.
