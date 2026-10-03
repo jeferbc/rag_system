@@ -20,10 +20,14 @@ class Chunk < ApplicationRecord
     embed(contents.map { |content| "title: #{title} | text: #{content}" })
   end
 
-  # Embeds a patient's question so that it lands near the documents that
-  # answer it (asymmetric retrieval).
+  # Embeds patients' questions so that they land near the documents that
+  # answer them (asymmetric retrieval). One provider call for all of them.
+  def self.embed_queries(queries)
+    embed(queries.map { |query| "task: search result | query: #{query}" })
+  end
+
   def self.embed_query(query)
-    embed([ "task: search result | query: #{query}" ]).first
+    embed_queries([ query ]).first
   end
 
   # Embeds +texts+ in one provider call and returns one vector per text.
@@ -31,11 +35,15 @@ class Chunk < ApplicationRecord
     RubyLLM.embed(texts, model: EMBEDDING_MODEL, dimensions: EMBEDDING_DIMENSIONS).vectors
   end
 
-  # The +limit+ chunks closest in meaning to +query+, nearest first. Each
-  # result responds to +neighbor_distance+ (cosine distance, lower is closer).
+  # The +limit+ chunks closest to an already-embedded query, nearest first.
+  # Each result responds to +neighbor_distance+ (cosine distance, lower is
+  # closer). Chainable, e.g. Chunk.where(...).nearest_to(vector).
+  def self.nearest_to(vector, limit: 5)
+    nearest_neighbors(:embedding, vector, distance: "cosine").includes(:document).limit(limit)
+  end
+
+  # The +limit+ chunks closest in meaning to +query+.
   def self.search(query, limit: 5)
-    nearest_neighbors(:embedding, embed_query(query), distance: "cosine")
-      .includes(:document)
-      .limit(limit)
+    nearest_to(embed_query(query), limit: limit)
   end
 end
