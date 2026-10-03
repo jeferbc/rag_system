@@ -36,7 +36,7 @@ Requirements: Ruby 3.4.2, Docker.
 ```bash
 bundle install
 docker compose up -d            # Postgres + pgvector on localhost:5433
-cp .env.example .env            # then set GEMINI_API_KEY
+cp .env.example .env            # local overrides; the API key goes in credentials (below)
 bin/rails db:prepare            # creates the databases and seeds the fictional clinic
 bin/rails ruby_llm:load_models  # loads RubyLLM's bundled model registry (offline)
 bin/rails documents:ingest      # chunks and embeds the seeded documents (calls the embeddings API)
@@ -46,7 +46,16 @@ Seeding needs no API key. Only `documents:ingest` and searching call the embeddi
 
 ### Embeddings provider
 
-Embeddings use Google's `gemini-embedding-2` through RubyLLM. Get a key at [Google AI Studio](https://aistudio.google.com/apikey) and put it in `.env` as `GEMINI_API_KEY`. The Gemini API is billed separately from a Gemini app subscription; it has a free tier, but on the free tier Google states that content may be used to improve its products, so use the paid tier for any real clinic content.
+Embeddings use Google's `gemini-embedding-2` through RubyLLM. Get a key at [Google AI Studio](https://aistudio.google.com/apikey) and store it in Rails credentials, keyed by environment (`bin/rails credentials:edit`):
+
+```yaml
+development:
+  GEMINI_API_KEY: ...
+production:
+  GEMINI_API_KEY: ...
+```
+
+A `GEMINI_API_KEY` environment variable overrides the credentials, which is how CI and containers can supply it. The Gemini API is billed separately from a Gemini app subscription; it has a free tier, but on the free tier Google states that content may be used to improve its products, so use the paid tier for any real clinic content.
 
 To use another provider, set `EMBEDDING_MODEL` to any RubyLLM embedding model that can output 1,536 dimensions (for example `text-embedding-3-small` with `OPENAI_API_KEY`). Vectors from different models are not comparable, so re-embed everything afterwards with `bin/rails documents:ingest ALL=1`.
 
@@ -71,7 +80,7 @@ If port 5433 is taken, set `DB_PORT` in `.env` (and in your shell for `docker co
 
 ## Keeping real data out of the repo
 
-This repository is public. Seeds, fixtures and test data are synthetic. Do not commit real clinic content, names or credentials. `.env` and `config/*.key` are gitignored; real deployments supply secrets through Rails credentials or environment variables managed outside the repo.
+This repository is public. Seeds, fixtures and test data are synthetic. Do not commit real clinic content, names or credentials. `.env` and `config/*.key` are gitignored. `config/credentials.yml.enc` is committed but only readable with `config/master.key`, which never leaves your machine and your deployment; everyone who holds it can read every environment's keys, so treat it accordingly.
 
 ## Roadmap
 

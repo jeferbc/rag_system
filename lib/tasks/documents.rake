@@ -3,7 +3,8 @@ namespace :documents do
   task ingest: :environment do
     provider = RubyLLM.models.find(Chunk::EMBEDDING_MODEL).provider
     if RubyLLM.config.public_send("#{provider}_api_key").blank?
-      abort "#{provider.upcase}_API_KEY is not set; #{Chunk::EMBEDDING_MODEL} needs it to embed documents."
+      abort "No #{provider} API key configured; #{Chunk::EMBEDDING_MODEL} needs #{provider.upcase}_API_KEY " \
+            "in Rails credentials (under #{Rails.env}:) or in ENV."
     end
 
     documents = ENV["ALL"].present? ? Document.all : Document.where.missing(:chunks)
