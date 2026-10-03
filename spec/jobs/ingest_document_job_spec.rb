@@ -16,13 +16,13 @@ RSpec.describe IngestDocumentJob do
     expect(chunks.map { |chunk| chunk.embedding.to_a }).to eq([ axis_vector(0), axis_vector(1) ])
   end
 
-  it "embeds every chunk in a single call, prefixed with the document title" do
+  it "embeds every chunk in a single call, each carrying the document title" do
     embedded = stub_embeddings
 
     described_class.perform_now(document)
 
     expect(RubyLLM).to have_received(:embed).once
-    expect(embedded).to eq([ "Dr. Example\n\n#{first_paragraph}", "Dr. Example\n\n#{second_paragraph}" ])
+    expect(embedded).to eq([ "title: Dr. Example | text: #{first_paragraph}", "title: Dr. Example | text: #{second_paragraph}" ])
   end
 
   it "replaces the chunks from a previous ingestion" do

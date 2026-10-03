@@ -23,7 +23,7 @@ Documents are uploaded at `/admin/documents`, several files at a time. Uploading
 ## Stack
 
 - Ruby 3.4, Rails 8.1, PostgreSQL 17 with [pgvector](https://github.com/pgvector/pgvector)
-- [RubyLLM](https://rubyllm.com) 2.x for LLM calls and embeddings (`text-embedding-3-small`)
+- [RubyLLM](https://rubyllm.com) 2.x for LLM calls and embeddings (`gemini-embedding-2` by default, switchable)
 - [neighbor](https://github.com/ankane/neighbor) for nearest-neighbor search (HNSW, cosine)
 - Solid Queue for background and recurring jobs (no Redis)
 - Hotwire and Tailwind CSS for the upcoming web channel
@@ -36,13 +36,19 @@ Requirements: Ruby 3.4.2, Docker.
 ```bash
 bundle install
 docker compose up -d            # Postgres + pgvector on localhost:5433
-cp .env.example .env            # then set OPENAI_API_KEY
+cp .env.example .env            # then set GEMINI_API_KEY
 bin/rails db:prepare            # creates the databases and seeds the fictional clinic
 bin/rails ruby_llm:load_models  # loads RubyLLM's bundled model registry (offline)
-bin/rails documents:ingest      # chunks and embeds the seeded documents (calls OpenAI)
+bin/rails documents:ingest      # chunks and embeds the seeded documents (calls the embeddings API)
 ```
 
 Seeding needs no API key. Only `documents:ingest` and searching call the embeddings API.
+
+### Embeddings provider
+
+Embeddings use Google's `gemini-embedding-2` through RubyLLM. Get a key at [Google AI Studio](https://aistudio.google.com/apikey) and put it in `.env` as `GEMINI_API_KEY`. The Gemini API is billed separately from a Gemini app subscription; it has a free tier, but on the free tier Google states that content may be used to improve its products, so use the paid tier for any real clinic content.
+
+To use another provider, set `EMBEDDING_MODEL` to any RubyLLM embedding model that can output 1,536 dimensions (for example `text-embedding-3-small` with `OPENAI_API_KEY`). Vectors from different models are not comparable, so re-embed everything afterwards with `bin/rails documents:ingest ALL=1`.
 
 Try a search:
 

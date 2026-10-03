@@ -16,7 +16,7 @@ class IngestDocumentJob < ApplicationJob
     # Embed before touching the database so a provider failure leaves the
     # existing chunks in place.
     embeddings = contents.each_slice(EMBED_BATCH_SIZE).flat_map do |batch|
-      Chunk.embed(batch.map { |content| embedding_input(document, content) })
+      Chunk.embed_documents(document.title, batch)
     end
 
     document.with_lock do
@@ -25,13 +25,5 @@ class IngestDocumentJob < ApplicationJob
         document.chunks.create!(content: content, position: position, embedding: embedding)
       end
     end
-  end
-
-  private
-
-  # The title travels with every chunk so a fragment like "Sessions are held
-  # in English and Spanish" still embeds close to the psychologist it describes.
-  def embedding_input(document, content)
-    "#{document.title}\n\n#{content}"
   end
 end

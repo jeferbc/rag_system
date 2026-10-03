@@ -1,6 +1,9 @@
 # A slice of a Document's body with its embedding, the unit retrieved by RAG.
 class Chunk < ApplicationRecord
-  EMBEDDING_MODEL = "text-embedding-3-small"
+  # Any RubyLLM embedding model that can output 1536 dimensions. Changing the
+  # model makes existing vectors incomparable: re-embed everything with
+  # `bin/rails documents:ingest ALL=1`.
+  EMBEDDING_MODEL = ENV.fetch("EMBEDDING_MODEL", "gemini-embedding-2")
   EMBEDDING_DIMENSIONS = 1536
 
   belongs_to :document
@@ -9,15 +12,29 @@ class Chunk < ApplicationRecord
 
   validates :content, :position, presence: true
 
+  # Embeds the chunks of one document. The "title: … | text: …" form is the
+  # retrieval format Google documents for gemini-embedding-2; it also keeps a
+  # fragment like "atiende en inglés" tied to the psychologist it describes.
+  # Other providers simply see it as text.
+  def self.embed_documents(title, contents)
+    embed(contents.map { |content| "title: #{title} | text: #{content}" })
+  end
+
+  # Embeds a patient's question so that it lands near the documents that
+  # answer it (asymmetric retrieval).
+  def self.embed_query(query)
+    embed([ "task: search result | query: #{query}" ]).first
+  end
+
   # Embeds +texts+ in one provider call and returns one vector per text.
   def self.embed(texts)
-    RubyLLM.embed(Array(texts), model: EMBEDDING_MODEL).vectors
+    RubyLLM.embed(texts, model: EMBEDDING_MODEL, dimensions: EMBEDDING_DIMENSIONS).vectors
   end
 
   # The +limit+ chunks closest in meaning to +query+, nearest first. Each
   # result responds to +neighbor_distance+ (cosine distance, lower is closer).
   def self.search(query, limit: 5)
-    nearest_neighbors(:embedding, embed(query).first, distance: "cosine")
+    nearest_neighbors(:embedding, embed_query(query), distance: "cosine")
       .includes(:document)
       .limit(limit)
   end
