@@ -40,7 +40,7 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 # LLM client: chat, embeddings and tool calling across providers [https://rubyllm.com]
-gem "ruby_llm", "~> 2.0"
+gem "ruby_llm", "~> 2.1"
 # Nearest-neighbor search over pgvector columns [https://github.com/ankane/neighbor]
 gem "neighbor"
 # Text extraction from uploaded PDFs
